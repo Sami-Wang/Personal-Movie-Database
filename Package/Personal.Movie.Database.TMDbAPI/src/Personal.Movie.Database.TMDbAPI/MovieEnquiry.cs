@@ -34,7 +34,13 @@ namespace Personal.Movie.Database.TMDbAPI
                     foreach (JObject npm in nowPlayingMoviesJsonArray)
                     {
                         MovieBriefInfo movieBriefInfo = new MovieBriefInfo();
-                        movieBriefInfo.posterPath = APIConstant.IMAGESERVERURL + npm.GetValue("poster_path").ToString();
+                        if (npm.GetValue("poster_path").ToString().Trim().Equals(""))
+                        {
+                            movieBriefInfo.posterPath = null; 
+                        }
+                        else {
+                            movieBriefInfo.posterPath = APIConstant.IMAGESERVERURL + npm.GetValue("poster_path").ToString();
+                        }
                         movieBriefInfo.adult = Convert.ToBoolean(npm.GetValue("adult").ToString());
                         movieBriefInfo.overview = npm.GetValue("overview").ToString();
                         movieBriefInfo.releaseDate = Convert.ToDateTime(npm.GetValue("release_date").ToString());
@@ -48,7 +54,12 @@ namespace Personal.Movie.Database.TMDbAPI
                         movieBriefInfo.originalTitle = npm.GetValue("original_title").ToString();
                         movieBriefInfo.originalLanguage = npm.GetValue("original_language").ToString();
                         movieBriefInfo.title = npm.GetValue("title").ToString();
-                        movieBriefInfo.backdropPath = APIConstant.IMAGESERVERURL + npm.GetValue("backdrop_path").ToString();
+                        if (npm.GetValue("backdrop_path").ToString().Trim().Equals("")) {
+                            movieBriefInfo.backdropPath = null;
+                        }
+                        else {
+                            movieBriefInfo.backdropPath = APIConstant.IMAGESERVERURL + npm.GetValue("backdrop_path").ToString();
+                        }
                         movieBriefInfo.popularity = Convert.ToDecimal(npm.GetValue("popularity").ToString());
                         movieBriefInfo.voteCount = Convert.ToInt32(npm.GetValue("vote_count").ToString());
                         movieBriefInfo.video = Convert.ToBoolean(npm.GetValue("video").ToString());
