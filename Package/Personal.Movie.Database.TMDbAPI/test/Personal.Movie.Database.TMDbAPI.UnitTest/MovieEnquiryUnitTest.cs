@@ -12,6 +12,22 @@ namespace Personal.Movie.Database.TMDbAPI.UnitTest
             Assert.NotNull(nowPlayingMovies);
         }
 
+        // Test MovieEnquiry.GetUpcomingMovies
+        [Fact]
+        public void GetUpcomingMoviesPassingTest()
+        {
+            var upcomingMovies = MovieEnquiry.GetUpcomingMovies().Result;
+            Assert.NotNull(upcomingMovies);
+        }
+
+        // Test MovieEnquiry.GetTopRatedMovies
+        [Fact]
+        public void GetTopRatedMoviesPassingTest()
+        {
+            var topRatedMovies = MovieEnquiry.GetTopRatedMovies().Result;
+            Assert.NotNull(topRatedMovies);
+        }
+
         // Test MovieEnquiry.SearchMovieByTitle
         [Fact]
         public void SearchMovieByTitlePassingTest()

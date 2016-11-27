@@ -8,6 +8,10 @@
 
         internal const string GETNOWPLAYINGMOVIESURL = "movie/now_playing?api_key=" + APIKEY + "&page=1";
 
+        internal const string GETUPCOMINGMOVIESURL = "movie/upcoming?api_key=" + APIKEY + "&page=1";
+
+        internal const string GETTOPRATEDMOVIESURL = "movie/top_rated?api_key=" + APIKEY + "&page=1";
+
         internal const string SEARCHMOVIEBYTITLEURL = "search/movie?api_key=" + APIKEY + "&query=";
 
         internal const string IMAGESERVERURL = "https://image.tmdb.org/t/p/original";
