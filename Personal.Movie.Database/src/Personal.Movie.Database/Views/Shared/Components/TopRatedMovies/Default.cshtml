@@ -2,17 +2,17 @@
 
 <div style="height: 4vh;">
     <h2>
-        Now Playing Movies
+        Top Rated Movies
     </h2>
 </div>
 
-<div id="nowPlayingMoviesCarousel" class="carousel slide" data-ride="carousel" style="height: 81vh">
+<div id="topRatedMoviesCarousel" class="carousel slide" data-ride="carousel" style="height: 81vh">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-        <li data-target="#nowPlayingMoviesCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#topRatedMoviesCarousel" data-slide-to="0" class="active"></li>
         @for (int i = 1; i < Model.Count; i++)
         {
-            <li data-target="#nowPlayingMoviesCarousel" data-slide-to=@i.ToString()></li>
+            <li data-target="#topRatedMoviesCarousel" data-slide-to=@i.ToString()></li>
         }
     </ol>
 
@@ -36,11 +36,11 @@
     </div>
 
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#nowPlayingMoviesCarousel" role="button" data-slide="prev">
+    <a class="left carousel-control" href="#topRatedMoviesCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#nowPlayingMoviesCarousel" role="button" data-slide="next">
+    <a class="right carousel-control" href="#topRatedMoviesCarousel" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>

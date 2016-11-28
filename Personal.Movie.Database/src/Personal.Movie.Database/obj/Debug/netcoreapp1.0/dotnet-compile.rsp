@@ -1,5 +1,5 @@
---temp-output:C:\Users\yihang\Desktop\Personal.Movie.Database\src\Personal.Movie.Database\obj\Debug\netcoreapp1.0\
---out:C:\Users\yihang\Desktop\Personal.Movie.Database\src\Personal.Movie.Database\bin\Debug\netcoreapp1.0\Personal.Movie.Database.dll
+--temp-output:C:\Users\yihang\Desktop\Personal-Movie-Database\Personal.Movie.Database\src\Personal.Movie.Database\obj\Debug\netcoreapp1.0\
+--out:C:\Users\yihang\Desktop\Personal-Movie-Database\Personal.Movie.Database\src\Personal.Movie.Database\bin\Debug\netcoreapp1.0\Personal.Movie.Database.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -198,8 +198,10 @@
 --reference:C:\Users\yihang\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\yihang\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\yihang\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
---resource:"C:\Users\yihang\Desktop\Personal.Movie.Database\src\Personal.Movie.Database\obj\Debug\netcoreapp1.0\Personal.Movie.Databasedotnet-compile.deps.json",Personal.Movie.Database.deps.json
-C:\Users\yihang\Desktop\Personal.Movie.Database\src\Personal.Movie.Database\Program.cs
-C:\Users\yihang\Desktop\Personal.Movie.Database\src\Personal.Movie.Database\Startup.cs
-C:\Users\yihang\Desktop\Personal.Movie.Database\src\Personal.Movie.Database\Controllers\HomeController.cs
-C:\Users\yihang\Desktop\Personal.Movie.Database\src\Personal.Movie.Database\ViewComponents\NowPlayingMoviesViewComponent.cs
+--resource:"C:\Users\yihang\Desktop\Personal-Movie-Database\Personal.Movie.Database\src\Personal.Movie.Database\obj\Debug\netcoreapp1.0\Personal.Movie.Databasedotnet-compile.deps.json",Personal.Movie.Database.deps.json
+C:\Users\yihang\Desktop\Personal-Movie-Database\Personal.Movie.Database\src\Personal.Movie.Database\Program.cs
+C:\Users\yihang\Desktop\Personal-Movie-Database\Personal.Movie.Database\src\Personal.Movie.Database\Startup.cs
+C:\Users\yihang\Desktop\Personal-Movie-Database\Personal.Movie.Database\src\Personal.Movie.Database\Controllers\HomeController.cs
+C:\Users\yihang\Desktop\Personal-Movie-Database\Personal.Movie.Database\src\Personal.Movie.Database\ViewComponents\NowPlayingMoviesViewComponent.cs
+C:\Users\yihang\Desktop\Personal-Movie-Database\Personal.Movie.Database\src\Personal.Movie.Database\ViewComponents\TopRatedMoviesViewComponent.cs
+C:\Users\yihang\Desktop\Personal-Movie-Database\Personal.Movie.Database\src\Personal.Movie.Database\ViewComponents\UpcomingMoviesViewComponent.cs

@@ -10,13 +10,13 @@ namespace Personal.Movie.Database.ViewComponents
     {
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            List<MovieBriefInfo> NowPlayingMoviesComponent = await MovieEnquiry.GetNowPlayingMovies();
-            for (int i = 0; i < NowPlayingMoviesComponent.Count; i++) {
-                if (NowPlayingMoviesComponent[i].backdropPath == null) {
-                    NowPlayingMoviesComponent.Remove(NowPlayingMoviesComponent[i]);
+            List<MovieBriefInfo> nowPlayingMoviesComponent = await MovieEnquiry.GetNowPlayingMovies();
+            for (int i = 0; i < nowPlayingMoviesComponent.Count; i++) {
+                if (nowPlayingMoviesComponent[i].posterPath == null) {
+                    nowPlayingMoviesComponent.Remove(nowPlayingMoviesComponent[i]);
                 }
             }
-            return View(NowPlayingMoviesComponent);
+            return View(nowPlayingMoviesComponent);
         }        
     }
 }

@@ -5666,7 +5666,7 @@
     "Personal.Movie.Database.TMDbAPI/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-RfEWzIewSVcyG5nSviErO2YOJTpXCrSA9qDq3oPt4hZ293beZfowJNYrMlXXtlPg6D8SuLsTfTg+0cya7xXPww=="
+      "sha512": "sha512-yqDeF9SaP8rWtiL0aY7D7IYTB5zAfDXtiyC1CGoMefcH7QAJTU1Ej+pac960JYF6cUrFVT7yU6TOWVvkMg8zTg=="
     },
     "runtime.native.System/4.0.0": {
       "type": "package",

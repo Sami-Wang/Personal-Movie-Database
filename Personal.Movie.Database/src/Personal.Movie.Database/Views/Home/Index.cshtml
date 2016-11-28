@@ -2,6 +2,16 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div>
-    @await Component.InvokeAsync("NowPlayingMovies")
+<div style="width: 100vw; height: 85vh; text-align:center">
+    <div style="display:inline-block; width:33vw; height: 85vh;">
+        @await Component.InvokeAsync("NowPlayingMovies")
+    </div>
+
+    <div style="display:inline-block; width:33vw; height: 85vh;">
+        @await Component.InvokeAsync("UpcomingMovies")
+    </div>
+
+    <div style="display:inline-block; width:33vw; height: 85vh;">
+        @await Component.InvokeAsync("TopRatedMovies")
+    </div>
 </div>
