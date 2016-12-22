@@ -16,11 +16,11 @@ namespace Personal.Movie.Database.TMDbAPI
         /// </summary>
         /// <returns></returns>
         public async static Task<List<MovieBriefInfo>> GetNowPlayingMovies()
-        {
-            List<MovieBriefInfo> nowPlayingMovies = new List<MovieBriefInfo>();
+        {          
             // Request TMDb API To Get Now Playing Movies
             using (HttpClient client = new HttpClient())
             {
+                List<MovieBriefInfo> nowPlayingMovies = new List<MovieBriefInfo>();
                 try
                 {
                     client.BaseAddress = new Uri(APIConstant.TMDBBASEURL);
@@ -79,11 +79,11 @@ namespace Personal.Movie.Database.TMDbAPI
         /// </summary>
         /// <returns></returns>
         public async static Task<List<MovieBriefInfo>> GetUpcomingMovies()
-        {
-            List<MovieBriefInfo> upcomingMovies = new List<MovieBriefInfo>();
+        {            
             // Request TMDb API To Get Now Playing Movies
             using (HttpClient client = new HttpClient())
             {
+                List<MovieBriefInfo> upcomingMovies = new List<MovieBriefInfo>();
                 try
                 {
                     client.BaseAddress = new Uri(APIConstant.TMDBBASEURL);
@@ -146,11 +146,11 @@ namespace Personal.Movie.Database.TMDbAPI
         /// </summary>
         /// <returns></returns>
         public async static Task<List<MovieBriefInfo>> GetTopRatedMovies()
-        {
-            List<MovieBriefInfo> topRatedMovies = new List<MovieBriefInfo>();
+        {            
             // Request TMDb API To Get Now Playing Movies
             using (HttpClient client = new HttpClient())
             {
+                List<MovieBriefInfo> topRatedMovies = new List<MovieBriefInfo>();
                 try
                 {
                     client.BaseAddress = new Uri(APIConstant.TMDBBASEURL);
@@ -213,11 +213,11 @@ namespace Personal.Movie.Database.TMDbAPI
         /// </summary>
         /// <param name="movieTitle"></param>
         /// <returns></returns>
-        public async static Task<List<MovieBriefInfo>> SearchMovieByTitle(string movieTitle) {
-            List<MovieBriefInfo> movieSearchResults = new List<MovieBriefInfo>();
+        public async static Task<List<MovieBriefInfo>> SearchMovieByTitle(string movieTitle) {            
             // Request TMDb API To Search Movie By Title        
             using (HttpClient client = new HttpClient())
-            {               
+            {
+                List<MovieBriefInfo> movieSearchResults = new List<MovieBriefInfo>();
                 try
                 {
                     client.BaseAddress = new Uri(APIConstant.TMDBBASEURL);
@@ -231,7 +231,12 @@ namespace Personal.Movie.Database.TMDbAPI
                     JArray movieSearchResultsJsonArray = (JArray)movieSearchResultsJsonObject.GetValue("results");
                     foreach (JObject msrja in movieSearchResultsJsonArray) {
                         MovieBriefInfo movieBriefInfo = new MovieBriefInfo();
-                        movieBriefInfo.posterPath = APIConstant.IMAGESERVERURL + msrja.GetValue("poster_path").ToString();
+                        if (msrja.GetValue("poster_path").ToString().Trim().Equals("")) {
+                            movieBriefInfo.posterPath = null;
+                        }
+                        else {
+                            movieBriefInfo.posterPath = APIConstant.IMAGESERVERURL + msrja.GetValue("poster_path").ToString();
+                        }                   
                         movieBriefInfo.adult = Convert.ToBoolean(msrja.GetValue("adult").ToString());
                         movieBriefInfo.overview = msrja.GetValue("overview").ToString();
                         movieBriefInfo.releaseDate = Convert.ToDateTime(msrja.GetValue("release_date").ToString());
@@ -244,7 +249,12 @@ namespace Personal.Movie.Database.TMDbAPI
                         movieBriefInfo.originalTitle = msrja.GetValue("original_title").ToString();
                         movieBriefInfo.originalLanguage = msrja.GetValue("original_language").ToString();
                         movieBriefInfo.title = msrja.GetValue("title").ToString();
-                        movieBriefInfo.backdropPath = APIConstant.IMAGESERVERURL + msrja.GetValue("backdrop_path").ToString();
+                        if (msrja.GetValue("backdrop_path").ToString().Trim().Equals("")) {
+                            movieBriefInfo.backdropPath = null;
+                        }
+                        else {
+                            movieBriefInfo.backdropPath = APIConstant.IMAGESERVERURL + msrja.GetValue("backdrop_path").ToString();
+                        }
                         movieBriefInfo.popularity = Convert.ToDecimal(msrja.GetValue("popularity").ToString());
                         movieBriefInfo.voteCount = Convert.ToInt32(msrja.GetValue("vote_count").ToString());
                         movieBriefInfo.video = Convert.ToBoolean(msrja.GetValue("video").ToString());
@@ -258,6 +268,121 @@ namespace Personal.Movie.Database.TMDbAPI
                     return movieSearchResults;
                 }
             }                
+        }
+
+        /// <summary>
+        /// Get Movie Details By Movie ID.
+        /// </summary>
+        /// <param name="movieID"></param>
+        /// <returns></returns>
+        public async static Task<MovieDetailInfo> GetMovieDetails(int? movieID)
+        {            
+            // Request TMDb API To Get Now Playing Movies
+            using (HttpClient client = new HttpClient())
+            {
+                MovieDetailInfo movieDetails = new MovieDetailInfo();
+                try
+                {
+                    client.BaseAddress = new Uri(APIConstant.TMDBBASEURL);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    HttpResponseMessage response = await client.GetAsync(
+                        APIConstant.GETMOVIEDETAILSURL.Replace("**********", movieID.ToString()));
+                    // Parse Json
+                    string movieDetailsJsonString = await response.Content.ReadAsStringAsync();
+                    JObject movieDetailsJsonObject = JObject.Parse(movieDetailsJsonString);
+                    movieDetails.adult = Convert.ToBoolean(movieDetailsJsonObject.GetValue("adult").ToString());
+                    if (movieDetailsJsonObject.GetValue("backdrop_path").ToString().Trim().Equals("")) {
+                        movieDetails.backdropPath = null;
+                    }
+                    else {
+                        movieDetails.backdropPath = APIConstant.IMAGESERVERURL + movieDetailsJsonObject.GetValue("backdrop_path").ToString();
+                    }
+                    JObject belongsToCollectionJsonObject = (JObject)movieDetailsJsonObject.GetValue("belongs_to_collection");
+                    MovieCollection movieCollection = new MovieCollection();
+                    movieCollection.id = Convert.ToInt32(belongsToCollectionJsonObject.GetValue("id").ToString());
+                    movieCollection.name = belongsToCollectionJsonObject.GetValue("name").ToString();
+                    if (belongsToCollectionJsonObject.GetValue("poster_path").ToString().Trim().Equals("")) {
+                        movieCollection.posterPath = null;
+                    }
+                    else {
+                        movieCollection.posterPath = APIConstant.IMAGESERVERURL + belongsToCollectionJsonObject.GetValue("poster_path").ToString();
+                    }
+                    if (belongsToCollectionJsonObject.GetValue("backdrop_path").ToString().Trim().Equals("")) {
+                        movieCollection.backDropPath = null;
+                    }
+                    else {
+                        movieCollection.backDropPath = APIConstant.IMAGESERVERURL + belongsToCollectionJsonObject.GetValue("backdrop_path").ToString();
+                    }
+                    movieDetails.movieCollection = movieCollection;
+                    movieDetails.budget = Convert.ToDecimal(movieDetailsJsonObject.GetValue("budget").ToString());                 
+                    JArray genreJsonArray = (JArray)movieDetailsJsonObject.GetValue("genres");
+                    List<Genre> genres = new List<Genre>();
+                    foreach (JObject g in genreJsonArray)
+                    {
+                        genres.Add(new Genre()
+                        {
+                            id = Convert.ToInt32(g.GetValue("id").ToString()),
+                            name = g.GetValue("name").ToString()
+                        });
+                    }
+                    movieDetails.genres = genres;
+                    movieDetails.homepage = movieDetailsJsonObject.GetValue("homepage").ToString();
+                    movieDetails.id = Convert.ToInt32(movieDetailsJsonObject.GetValue("id").ToString());
+                    movieDetails.imdbID = movieDetailsJsonObject.GetValue("imdb_id").ToString();
+                    movieDetails.originalLanguage = movieDetailsJsonObject.GetValue("original_language").ToString();
+                    movieDetails.originalTitle = movieDetailsJsonObject.GetValue("original_title").ToString();
+                    movieDetails.overView = movieDetailsJsonObject.GetValue("overview").ToString();
+                    movieDetails.popularity = Convert.ToDecimal(movieDetailsJsonObject.GetValue("popularity").ToString());
+                    if (movieDetailsJsonObject.GetValue("poster_path").ToString().Trim().Equals("")) {
+                        movieDetails.posterPath = null;
+                    }
+                    else {
+                        movieDetails.posterPath = APIConstant.IMAGESERVERURL + movieDetailsJsonObject.GetValue("poster_path").ToString();
+                    }
+                    JArray productionCompanyJsonArray = (JArray)movieDetailsJsonObject.GetValue("production_companies");
+                    List<ProductionCompany> productionCompanies = new List<ProductionCompany>();
+                    foreach (JObject pc in productionCompanyJsonArray) {
+                        productionCompanies.Add(new ProductionCompany() {
+                            id = Convert.ToInt32(pc.GetValue("id").ToString()),
+                            name = pc.GetValue("name").ToString()
+                        });
+                    }
+                    movieDetails.productionCompanies = productionCompanies;
+                    JArray productionCountryJsonArray = (JArray)movieDetailsJsonObject.GetValue("production_countries");
+                    List<ProductionCountry> productionCountries = new List<ProductionCountry>();
+                    foreach (JObject pc in productionCountryJsonArray) {
+                        productionCountries.Add(new ProductionCountry() {
+                            countryCode = pc.GetValue("iso_3166_1").ToString(),
+                            countryName = pc.GetValue("name").ToString()
+                        });
+                    }
+                    movieDetails.productionCountries = productionCountries;
+                    movieDetails.releaseDate = Convert.ToDateTime(movieDetailsJsonObject.GetValue("release_date").ToString());
+                    movieDetails.revenue = Convert.ToDecimal(movieDetailsJsonObject.GetValue("revenue").ToString());
+                    movieDetails.runtime = Convert.ToInt32(movieDetailsJsonObject.GetValue("runtime").ToString());
+                    JArray spokenLanguageJsonArray = (JArray)movieDetailsJsonObject.GetValue("spoken_languages");
+                    List<SpokenLanguage> spokenLanguages = new List<SpokenLanguage>();
+                    foreach (JObject sl in spokenLanguageJsonArray) {
+                        spokenLanguages.Add(new SpokenLanguage() {
+                            languageCode = sl.GetValue("iso_639_1").ToString(),
+                            languageName = sl.GetValue("name").ToString()
+                        });
+                    }
+                    movieDetails.spokenLanguages = spokenLanguages;
+                    movieDetails.status = movieDetailsJsonObject.GetValue("status").ToString();
+                    movieDetails.tagline = movieDetailsJsonObject.GetValue("tagline").ToString();
+                    movieDetails.title = movieDetailsJsonObject.GetValue("title").ToString();
+                    movieDetails.video = Convert.ToBoolean(movieDetailsJsonObject.GetValue("video").ToString());
+                    movieDetails.voteAverage = Convert.ToDecimal(movieDetailsJsonObject.GetValue("vote_average").ToString());
+                    movieDetails.voteCount = Convert.ToInt32(movieDetailsJsonObject.GetValue("vote_count").ToString());
+                    return movieDetails;
+                }
+                catch (Exception ex)
+                {
+                    return movieDetails;
+                }
+            }
         }
     }
 }

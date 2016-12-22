@@ -14,6 +14,8 @@
 
         internal const string SEARCHMOVIEBYTITLEURL = "search/movie?api_key=" + APIKEY + "&query=";
 
+        internal const string GETMOVIEDETAILSURL = "movie/" + "**********" + "?api_key=" + APIKEY;
+
         internal const string IMAGESERVERURL = "https://image.tmdb.org/t/p/original";
     }
 }

@@ -35,5 +35,13 @@ namespace Personal.Movie.Database.TMDbAPI.UnitTest
             var movieSearchResults = MovieEnquiry.SearchMovieByTitle("Lord of the Rings").Result;
             Assert.NotNull(movieSearchResults);
         }
+
+        // Test MovieEnquiry.GetMovieDetails
+        [Fact]
+        public void GetMovieDetailsPassingTest()
+        {
+            var movieDetails = MovieEnquiry.GetMovieDetails(120).Result;
+            Assert.NotNull(movieDetails);
+        }
     }
 }

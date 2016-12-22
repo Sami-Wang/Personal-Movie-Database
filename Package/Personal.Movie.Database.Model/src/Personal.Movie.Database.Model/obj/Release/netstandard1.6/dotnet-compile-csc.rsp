@@ -55,4 +55,5 @@
 -r:"C:\Users\yihang\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\yihang\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
 "C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\MovieModel\MovieBriefInfo.cs"
+"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\MovieModel\MovieDetailInfo.cs"
 "C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\Properties\AssemblyInfo.cs"
