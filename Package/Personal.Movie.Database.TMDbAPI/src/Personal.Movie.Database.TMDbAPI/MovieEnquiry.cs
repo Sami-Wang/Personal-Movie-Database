@@ -43,7 +43,13 @@ namespace Personal.Movie.Database.TMDbAPI
                         }
                         movieBriefInfo.adult = Convert.ToBoolean(npm.GetValue("adult").ToString());
                         movieBriefInfo.overview = npm.GetValue("overview").ToString();
-                        movieBriefInfo.releaseDate = Convert.ToDateTime(npm.GetValue("release_date").ToString());
+                        if(npm.GetValue("release_date").ToString().Trim().Equals(""))
+                        {
+                            movieBriefInfo.releaseDate = null;
+                        }
+                        else {
+                            movieBriefInfo.releaseDate = Convert.ToDateTime(npm.GetValue("release_date").ToString());
+                        }
                         List<int?> genreIDs = new List<int?>();
                         foreach (string gi in (JArray)npm.GetValue("genre_ids"))
                         {
@@ -69,7 +75,7 @@ namespace Personal.Movie.Database.TMDbAPI
                     return nowPlayingMovies;
                 }
                 catch (Exception ex) {
-                    return nowPlayingMovies;
+                    return null;
                 }
             }
         }
@@ -107,7 +113,12 @@ namespace Personal.Movie.Database.TMDbAPI
                         }
                         movieBriefInfo.adult = Convert.ToBoolean(um.GetValue("adult").ToString());
                         movieBriefInfo.overview = um.GetValue("overview").ToString();
-                        movieBriefInfo.releaseDate = Convert.ToDateTime(um.GetValue("release_date").ToString());
+                        if (um.GetValue("release_date").ToString().Trim().Equals("")) {
+                            movieBriefInfo.releaseDate = null;
+                        }
+                        else {
+                            movieBriefInfo.releaseDate = Convert.ToDateTime(um.GetValue("release_date").ToString());
+                        }
                         List<int?> genreIDs = new List<int?>();
                         foreach (string gi in (JArray)um.GetValue("genre_ids"))
                         {
@@ -136,7 +147,7 @@ namespace Personal.Movie.Database.TMDbAPI
                 }
                 catch (Exception ex)
                 {
-                    return upcomingMovies;
+                    return null;
                 }
             }
         }
@@ -174,7 +185,12 @@ namespace Personal.Movie.Database.TMDbAPI
                         }
                         movieBriefInfo.adult = Convert.ToBoolean(trm.GetValue("adult").ToString());
                         movieBriefInfo.overview = trm.GetValue("overview").ToString();
-                        movieBriefInfo.releaseDate = Convert.ToDateTime(trm.GetValue("release_date").ToString());
+                        if (trm.GetValue("release_date").ToString().Trim().Equals("")) {
+                            movieBriefInfo.releaseDate = null;
+                        }
+                        else {
+                            movieBriefInfo.releaseDate = Convert.ToDateTime(trm.GetValue("release_date").ToString());
+                        }
                         List<int?> genreIDs = new List<int?>();
                         foreach (string gi in (JArray)trm.GetValue("genre_ids"))
                         {
@@ -203,7 +219,7 @@ namespace Personal.Movie.Database.TMDbAPI
                 }
                 catch (Exception ex)
                 {
-                    return topRatedMovies;
+                    return null;
                 }
             }
         }
@@ -239,7 +255,13 @@ namespace Personal.Movie.Database.TMDbAPI
                         }                   
                         movieBriefInfo.adult = Convert.ToBoolean(msrja.GetValue("adult").ToString());
                         movieBriefInfo.overview = msrja.GetValue("overview").ToString();
-                        movieBriefInfo.releaseDate = Convert.ToDateTime(msrja.GetValue("release_date").ToString());
+                        if (msrja.GetValue("release_date").ToString().Trim().Equals(""))
+                        {
+                            movieBriefInfo.releaseDate = null;
+                        }
+                        else {
+                            movieBriefInfo.releaseDate = Convert.ToDateTime(msrja.GetValue("release_date").ToString());
+                        }
                         List<int?> genreIDs = new List<int?>();
                         foreach (string gi in (JArray)msrja.GetValue("genre_ids")) {                          
                             genreIDs.Add(Convert.ToInt32(gi));
@@ -265,7 +287,7 @@ namespace Personal.Movie.Database.TMDbAPI
                 }
                 catch (Exception ex)
                 {
-                    return movieSearchResults;
+                    return null;
                 }
             }                
         }
@@ -298,23 +320,34 @@ namespace Personal.Movie.Database.TMDbAPI
                     else {
                         movieDetails.backdropPath = APIConstant.IMAGESERVERURL + movieDetailsJsonObject.GetValue("backdrop_path").ToString();
                     }
-                    JObject belongsToCollectionJsonObject = (JObject)movieDetailsJsonObject.GetValue("belongs_to_collection");
-                    MovieCollection movieCollection = new MovieCollection();
-                    movieCollection.id = Convert.ToInt32(belongsToCollectionJsonObject.GetValue("id").ToString());
-                    movieCollection.name = belongsToCollectionJsonObject.GetValue("name").ToString();
-                    if (belongsToCollectionJsonObject.GetValue("poster_path").ToString().Trim().Equals("")) {
-                        movieCollection.posterPath = null;
+                    
+                    if (movieDetailsJsonObject.GetValue("belongs_to_collection").ToString().Trim().Equals(""))
+                    {
+                        movieDetails.movieCollection = null;
                     }
                     else {
-                        movieCollection.posterPath = APIConstant.IMAGESERVERURL + belongsToCollectionJsonObject.GetValue("poster_path").ToString();
-                    }
-                    if (belongsToCollectionJsonObject.GetValue("backdrop_path").ToString().Trim().Equals("")) {
-                        movieCollection.backDropPath = null;
-                    }
-                    else {
-                        movieCollection.backDropPath = APIConstant.IMAGESERVERURL + belongsToCollectionJsonObject.GetValue("backdrop_path").ToString();
-                    }
-                    movieDetails.movieCollection = movieCollection;
+                        JObject belongsToCollectionJsonObject = (JObject)movieDetailsJsonObject.GetValue("belongs_to_collection");
+                        MovieCollection movieCollection = new MovieCollection();
+                        movieCollection.id = Convert.ToInt32(belongsToCollectionJsonObject.GetValue("id").ToString());
+                        movieCollection.name = belongsToCollectionJsonObject.GetValue("name").ToString();
+                        if (belongsToCollectionJsonObject.GetValue("poster_path").ToString().Trim().Equals(""))
+                        {
+                            movieCollection.posterPath = null;
+                        }
+                        else
+                        {
+                            movieCollection.posterPath = APIConstant.IMAGESERVERURL + belongsToCollectionJsonObject.GetValue("poster_path").ToString();
+                        }
+                        if (belongsToCollectionJsonObject.GetValue("backdrop_path").ToString().Trim().Equals(""))
+                        {
+                            movieCollection.backDropPath = null;
+                        }
+                        else
+                        {
+                            movieCollection.backDropPath = APIConstant.IMAGESERVERURL + belongsToCollectionJsonObject.GetValue("backdrop_path").ToString();
+                        }
+                        movieDetails.movieCollection = movieCollection;
+                    }                    
                     movieDetails.budget = Convert.ToDecimal(movieDetailsJsonObject.GetValue("budget").ToString());                 
                     JArray genreJsonArray = (JArray)movieDetailsJsonObject.GetValue("genres");
                     List<Genre> genres = new List<Genre>();
@@ -380,7 +413,7 @@ namespace Personal.Movie.Database.TMDbAPI
                 }
                 catch (Exception ex)
                 {
-                    return movieDetails;
+                    return null;
                 }
             }
         }

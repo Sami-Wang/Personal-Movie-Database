@@ -12,5 +12,10 @@ namespace Personal.Movie.Database.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> MovieDetailsInfo(int? id)
+        {
+            return View(id);
+        }
     }
 }

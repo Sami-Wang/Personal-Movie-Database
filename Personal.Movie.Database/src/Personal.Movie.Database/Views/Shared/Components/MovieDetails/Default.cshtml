@@ -1,0 +1,91 @@
+﻿@model Personal.Movie.Database.Model.MovieModel.MovieDetailInfo
+
+<div class="row">
+    <div class="col-lg-12">
+        @if (Model.releaseDate == null)
+        {
+            <h1 class="page-header">@Model.title</h1>
+        }
+        else
+        {
+            <h1 class="page-header">
+                @Model.title (@DateTime.Parse(Model.releaseDate.ToString()).Year)
+            </h1>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <img class="img-responsive" src=@Model.posterPath alt=@Model.title>
+    </div>
+    <div class="col-md-1"></div>
+
+    <div class="col-md-5">
+        <h3>Genre</h3>
+        @{
+            string genresString = null;
+            for (int i = 0; i < Model.genres.Count; i++)
+            {
+                genresString = genresString + @Model.genres[i].name + ", ";
+            }
+
+        }
+        <p>@genresString.Substring(0, @genresString.Length - 2)</p>
+        <h3>Official Website</h3>
+        <a href=@Model.homepage>@Model.homepage</a>
+        <h3>Production Country</h3>
+        @{
+            string productionCountriesString = null;
+            for (int i = 0; i < Model.productionCountries.Count; i++)
+            {
+                productionCountriesString = productionCountriesString + @Model.productionCountries[i].countryName + ", ";
+            }
+        }
+        <p>@productionCountriesString.Substring(0, @productionCountriesString.Length - 2)</p>
+        <h3>Production Companies</h3>
+        @{
+            string productionCompaniesString = null;
+            for (int i = 0; i < Model.productionCompanies.Count; i++)
+            {
+                productionCompaniesString = productionCompaniesString + @Model.productionCompanies[i].name + ", ";
+            }
+        }
+        <p>@productionCompaniesString.Substring(0, @productionCompaniesString.Length - 2)</p>
+        <h3>Budget</h3>
+        <p>@Model.budget</p>
+        <h3>Revenue</h3>
+        <p>@Model.revenue</p>
+        <h3>Spoken Languages</h3>
+        @{
+            string spokenLanguagesString = null;
+            for (int i = 0; i < Model.spokenLanguages.Count; i++)
+            {
+                spokenLanguagesString = spokenLanguagesString + @Model.spokenLanguages[i].languageName + ", ";
+            }
+        }
+        <p>@spokenLanguagesString.Substring(0, @spokenLanguagesString.Length - 2)</p>
+        <h3>Release Date</h3>
+        @if (Model.releaseDate.ToString().Trim() != null)
+        {
+            <p>@DateTime.Parse(Model.releaseDate.ToString()).Year-@DateTime.Parse(Model.releaseDate.ToString()).Month-@DateTime.Parse(Model.releaseDate.ToString()).Day</p>
+        }
+        <h3>Runtime</h3>
+        <p>@Model.runtime minutes</p>
+        <h3>IMDb Link</h3>
+        @{ 
+            string imdbString = "http://www.imdb.com/title/" + Model.imdbID;
+        }
+        <a href=@imdbString>@Model.imdbID</a>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header">Overview</h3>
+        </div>
+
+        <div class="col-md-12">
+            <p>@Model.overView</p>
+        </div>
+    </div>
+</div>

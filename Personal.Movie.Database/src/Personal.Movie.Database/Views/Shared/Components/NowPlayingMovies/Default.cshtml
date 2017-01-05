@@ -19,17 +19,25 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox" style="height: 81vh">
         <div class="item active" style="height: 81vh;">
-            <img src=@Model[0].posterPath alt=@Model[0].title style="height: 78vh; margin:auto;">
+            <a asp-controller="Home" asp-action="MovieDetailsInfo" asp-route-id=@Model[0].id>
+                <img src=@Model[0].posterPath alt=@Model[0].title style="height: 78vh; margin:auto;">
+            </a>
             <div style="height: 3vh;">
-                <h5 style="font-weight: bold;">@Model[0].title (@DateTime.Parse(Model[0].releaseDate.ToString()).Year)</h5>
+                <a asp-controller="Home" asp-action="MovieDetailsInfo" asp-route-id=@Model[0].id>
+                    <h5 style="font-weight: bold;">@Model[0].title (@DateTime.Parse(Model[0].releaseDate.ToString()).Year)</h5>
+                </a>
             </div>
         </div>
         @for (int i = 1; i < Model.Count; i++)
         {
             <div class="item" style="height: 81vh">
-                <img src=@Model[i].posterPath alt=@Model[i].title style="height: 78vh; margin:auto;">
+                <a asp-controller="Home" asp-action="MovieDetailsInfo" asp-route-id=@Model[i].id>
+                    <img src=@Model[i].posterPath alt=@Model[i].title style="height: 78vh; margin:auto;">
+                </a>
                 <div style="height: 3vh">
-                    <h5 style="font-weight: bold;">@Model[i].title (@DateTime.Parse(Model[i].releaseDate.ToString()).Year)</h5>
+                    <a asp-controller="Home" asp-action="MovieDetailsInfo" asp-route-id=@Model[i].id>
+                        <h5 style="font-weight: bold;">@Model[i].title (@DateTime.Parse(Model[i].releaseDate.ToString()).Year)</h5>
+                    </a>
                 </div>
             </div>
         }
