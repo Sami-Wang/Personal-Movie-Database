@@ -118,5 +118,33 @@
                 <p>@Model.overView</p>
             </div>
         </div>
-    }   
+    }
+    @if (Model.backdropPath != null || (Model.movieCollection != null))
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">Wallpapers</h3>
+            </div>
+
+            @if(Model.backdropPath != null){
+                <div class="col-sm-3 col-xs-6">
+                    <a href=@Model.backdropPath>
+                        <img class="img-responsive portfolio-item" src=@Model.backdropPath alt=@Model.title>
+                    </a>
+                </div>
+            }
+
+            @if (Model.movieCollection != null)
+            {
+                if (Model.movieCollection.backDropPath != null)
+                {
+                    <div class="col-sm-3 col-xs-6">
+                        <a href=@Model.movieCollection.backDropPath>
+                            <img class="img-responsive portfolio-item" src=@Model.movieCollection.backDropPath alt=@Model.title>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+    }
 </div>
