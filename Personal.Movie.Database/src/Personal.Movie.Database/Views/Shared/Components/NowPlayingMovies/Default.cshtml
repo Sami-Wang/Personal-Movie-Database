@@ -1,55 +1,73 @@
 ﻿@model List<Personal.Movie.Database.Model.MovieModel.MovieBriefInfo>
 
-<div style="height: 4vh;">
-    <h2>
-        Now Playing Movies
-    </h2>
+<div>
+    <h1 class="page-header" style="text-align:center">Now Playing Movies</h1>
 </div>
-
-<div id="nowPlayingMoviesCarousel" class="carousel slide" data-ride="carousel" style="height: 81vh">
+<div id="nowPlayingMoviesCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-        <li data-target="#nowPlayingMoviesCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#nowPlayingMoviesCarousel" data-slide-to="0" class="active" style="visibility:hidden"></li>
         @for (int i = 1; i < Model.Count; i++)
-        {
-            <li data-target="#nowPlayingMoviesCarousel" data-slide-to=@i.ToString()></li>
+            {
+            <li data-target="#nowPlayingMoviesCarousel" data-slide-to=@i.ToString() style="visibility:hidden"></li>
         }
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox" style="height: 81vh">
-        <div class="item active" style="height: 81vh;">
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
             <a asp-controller="Home" asp-action="MovieDetailsInfo" asp-route-id=@Model[0].id>
-                <img src=@Model[0].posterPath alt=@Model[0].title style="height: 78vh; margin:auto;">
+                <img src=@Model[0].posterPath alt=@Model[0].title class="img-responsive">
             </a>
-            <div style="height: 3vh;">
+            <div>
                 <a asp-controller="Home" asp-action="MovieDetailsInfo" asp-route-id=@Model[0].id>
-                    <h5 style="font-weight: bold;">@Model[0].title (@DateTime.Parse(Model[0].releaseDate.ToString()).Year)</h5>
+                    <h5 style="font-weight: bold; text-align:center">@Model[0].title (@DateTime.Parse(Model[0].releaseDate.ToString()).Year)</h5>
                 </a>
             </div>
         </div>
         @for (int i = 1; i < Model.Count; i++)
-        {
-            <div class="item" style="height: 81vh">
+            {
+            <div class="item">
                 <a asp-controller="Home" asp-action="MovieDetailsInfo" asp-route-id=@Model[i].id>
-                    <img src=@Model[i].posterPath alt=@Model[i].title style="height: 78vh; margin:auto;">
+                    <img src=@Model[i].posterPath alt=@Model[i].title class="img-responsive">
                 </a>
-                <div style="height: 3vh">
+                <div>
                     <a asp-controller="Home" asp-action="MovieDetailsInfo" asp-route-id=@Model[i].id>
-                        <h5 style="font-weight: bold;">@Model[i].title (@DateTime.Parse(Model[i].releaseDate.ToString()).Year)</h5>
+                        <h5 style="font-weight: bold; text-align:center">@Model[i].title (@DateTime.Parse(Model[i].releaseDate.ToString()).Year)</h5>
                     </a>
                 </div>
             </div>
         }
     </div>
-
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#nowPlayingMoviesCarousel" role="button" data-slide="prev">
+    <a class="left carousel-control" href="#nowPlayingMoviesCarousel" role="button" data-slide="prev" style="background:none">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#nowPlayingMoviesCarousel" role="button" data-slide="next">
+    <a class="right carousel-control" href="#nowPlayingMoviesCarousel" role="button" data-slide="next" style="background:none">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+

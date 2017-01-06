@@ -1,5 +1,9 @@
 ﻿@model int?
 
+@{
+    ViewData["Title"] = "Movie Details";
+}
+
 <div class="container">
     @await Component.InvokeAsync("MovieDetails", new { movieID = @Model})
 </div>
