@@ -5447,7 +5447,7 @@
       ]
     },
     "Personal.Movie.Database.Model/1.0.0": {
-      "sha512": "5eTUGa7uL5nPGDam5J92Pq9U6RKN6v8/ETz94JHsefh4bBEM6urqQZxQu+YWGqOzA0im7IQW/gPO/lKt4vUIPQ==",
+      "sha512": "ud4yio8PPc2DzRbVz3ckuXxG91ZnRiaNLK2gCMAVUGz+qa20jLMzcw99AVWkLUP3ABav/D8D2Ff14kxlq6SPfw==",
       "type": "package",
       "path": "Personal.Movie.Database.Model/1.0.0",
       "files": [
@@ -5457,7 +5457,7 @@
       ]
     },
     "Personal.Movie.Database.TMDbAPI/1.0.0": {
-      "sha512": "9geDfvaWySjIVRYX9IG6mKkape5Kpbb0NS0CRebcWXwF9kcTEHnbR5cEFud0DvWH9wzbb6X4kWIIijfnlom2sA==",
+      "sha512": "fGoFpxXDBA2cNk1CLgeNkV6jkQRTIM+uJE9Jy1r6iQ3XCz7uF1vRRBvVR0upGpWxsQ8bH5tpYngm8FsKggRIjg==",
       "type": "package",
       "path": "Personal.Movie.Database.TMDbAPI/1.0.0",
       "files": [

@@ -43,5 +43,13 @@ namespace Personal.Movie.Database.TMDbAPI.UnitTest
             var movieDetails = MovieEnquiry.GetMovieDetails(120).Result;
             Assert.NotNull(movieDetails);
         }
+
+        // Test MovieEnquiry.GetMovieVideos
+        [Fact]
+        public void GetMovieVideosPassingTest()
+        {
+            var movieVideos = MovieEnquiry.GetMovieVideos(120).Result;
+            Assert.NotNull(movieVideos);
+        }
     }
 }

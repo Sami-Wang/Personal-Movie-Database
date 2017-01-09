@@ -17,5 +17,7 @@
         internal const string GETMOVIEDETAILSURL = "movie/" + "**********" + "?api_key=" + APIKEY;
 
         internal const string IMAGESERVERURL = "https://image.tmdb.org/t/p/original";
+
+        internal const string GETMOVIEVIDEOSURL = "movie/" + "**********" + "/videos?api_key=" + APIKEY;
     }
 }

@@ -19,7 +19,7 @@
     <div class="col-md-5">
         <a href=@Model.posterPath>
             <img class="img-responsive" src=@Model.posterPath alt=@Model.title>
-        </a>       
+        </a>
     </div>
     <div class="col-md-1"></div>
 
@@ -86,7 +86,7 @@
             }
             <p>@spokenLanguagesString.Substring(0, @spokenLanguagesString.Length - 2)</p>
         }
-        <!-- Release Date -->      
+        <!-- Release Date -->
         @if (Model.releaseDate.ToString().Trim() != null)
         {
             <h3>Release Date</h3>
@@ -99,13 +99,13 @@
             <p>@Model.runtime minutes</p>
         }
         <!-- IMDb Link -->
-        
+
         @if (Model.imdbID != null)
         {
             <h3>IMDb Link</h3>
             string imdbString = "http://www.imdb.com/title/" + Model.imdbID;
             <a href=@imdbString>@Model.imdbID</a>
-        }      
+        }
     </div>
     @if (Model.overView != null)
     {
@@ -126,7 +126,8 @@
                 <h3 class="page-header">Wallpapers</h3>
             </div>
 
-            @if(Model.backdropPath != null){
+            @if (Model.backdropPath != null)
+            {
                 <div class="col-sm-3 col-xs-6">
                     <a href=@Model.backdropPath>
                         <img class="img-responsive portfolio-item" src=@Model.backdropPath alt=@Model.title>

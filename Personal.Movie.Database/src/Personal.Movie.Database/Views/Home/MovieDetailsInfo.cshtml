@@ -4,6 +4,10 @@
     ViewData["Title"] = "Movie Details";
 }
 
+<link href="~/css/4-col-portfolio.css" rel="stylesheet" />
+
 <div class="container">
     @await Component.InvokeAsync("MovieDetails", new { movieID = @Model})
+
+    @await Component.InvokeAsync("MovieVideos", new { movieID = @Model })
 </div>

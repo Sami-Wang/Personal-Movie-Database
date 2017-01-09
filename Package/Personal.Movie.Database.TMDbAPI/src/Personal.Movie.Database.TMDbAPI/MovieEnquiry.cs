@@ -20,7 +20,6 @@ namespace Personal.Movie.Database.TMDbAPI
             // Request TMDb API To Get Now Playing Movies
             using (HttpClient client = new HttpClient())
             {
-                List<MovieBriefInfo> nowPlayingMovies = new List<MovieBriefInfo>();
                 try
                 {
                     client.BaseAddress = new Uri(APIConstant.TMDBBASEURL);
@@ -28,6 +27,7 @@ namespace Personal.Movie.Database.TMDbAPI
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     HttpResponseMessage response = await client.GetAsync(APIConstant.GETNOWPLAYINGMOVIESURL);
                     // Parse Json
+                    List<MovieBriefInfo> nowPlayingMovies = new List<MovieBriefInfo>();
                     string nowPlayingMoviesJsonString = await response.Content.ReadAsStringAsync();
                     JObject nowPlayingMoviesJsonObject = JObject.Parse(nowPlayingMoviesJsonString);
                     JArray nowPlayingMoviesJsonArray = (JArray)nowPlayingMoviesJsonObject.GetValue("results");
@@ -88,8 +88,7 @@ namespace Personal.Movie.Database.TMDbAPI
         {            
             // Request TMDb API To Get Now Playing Movies
             using (HttpClient client = new HttpClient())
-            {
-                List<MovieBriefInfo> upcomingMovies = new List<MovieBriefInfo>();
+            {              
                 try
                 {
                     client.BaseAddress = new Uri(APIConstant.TMDBBASEURL);
@@ -97,6 +96,7 @@ namespace Personal.Movie.Database.TMDbAPI
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     HttpResponseMessage response = await client.GetAsync(APIConstant.GETUPCOMINGMOVIESURL);
                     // Parse Json
+                    List<MovieBriefInfo> upcomingMovies = new List<MovieBriefInfo>();
                     string upcomingMoviesJsonString = await response.Content.ReadAsStringAsync();
                     JObject upcomingMoviesJsonObject = JObject.Parse(upcomingMoviesJsonString);
                     JArray upcomingMoviesJsonArray = (JArray)upcomingMoviesJsonObject.GetValue("results");
@@ -160,8 +160,7 @@ namespace Personal.Movie.Database.TMDbAPI
         {            
             // Request TMDb API To Get Now Playing Movies
             using (HttpClient client = new HttpClient())
-            {
-                List<MovieBriefInfo> topRatedMovies = new List<MovieBriefInfo>();
+            {                
                 try
                 {
                     client.BaseAddress = new Uri(APIConstant.TMDBBASEURL);
@@ -169,6 +168,7 @@ namespace Personal.Movie.Database.TMDbAPI
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     HttpResponseMessage response = await client.GetAsync(APIConstant.GETTOPRATEDMOVIESURL);
                     // Parse Json
+                    List<MovieBriefInfo> topRatedMovies = new List<MovieBriefInfo>();
                     string topRatedMoviesJsonString = await response.Content.ReadAsStringAsync();
                     JObject topRatedMoviesJsonObject = JObject.Parse(topRatedMoviesJsonString);
                     JArray topRatedMoviesJsonArray = (JArray)topRatedMoviesJsonObject.GetValue("results");
@@ -232,8 +232,7 @@ namespace Personal.Movie.Database.TMDbAPI
         public async static Task<List<MovieBriefInfo>> SearchMovieByTitle(string movieTitle) {            
             // Request TMDb API To Search Movie By Title        
             using (HttpClient client = new HttpClient())
-            {
-                List<MovieBriefInfo> movieSearchResults = new List<MovieBriefInfo>();
+            {                
                 try
                 {
                     client.BaseAddress = new Uri(APIConstant.TMDBBASEURL);
@@ -242,6 +241,7 @@ namespace Personal.Movie.Database.TMDbAPI
                     HttpResponseMessage response = await client.GetAsync(APIConstant.SEARCHMOVIEBYTITLEURL +
                         movieTitle.Replace(" ", "%20"));
                     // Parse Json
+                    List<MovieBriefInfo> movieSearchResults = new List<MovieBriefInfo>();
                     string movieSearchResultsJsonString = await response.Content.ReadAsStringAsync();
                     JObject movieSearchResultsJsonObject = JObject.Parse(movieSearchResultsJsonString);
                     JArray movieSearchResultsJsonArray = (JArray)movieSearchResultsJsonObject.GetValue("results");
@@ -301,8 +301,7 @@ namespace Personal.Movie.Database.TMDbAPI
         {            
             // Request TMDb API To Get Now Playing Movies
             using (HttpClient client = new HttpClient())
-            {
-                MovieDetailInfo movieDetails = new MovieDetailInfo();
+            {            
                 try
                 {
                     client.BaseAddress = new Uri(APIConstant.TMDBBASEURL);
@@ -311,6 +310,7 @@ namespace Personal.Movie.Database.TMDbAPI
                     HttpResponseMessage response = await client.GetAsync(
                         APIConstant.GETMOVIEDETAILSURL.Replace("**********", movieID.ToString()));
                     // Parse Json
+                    MovieDetailInfo movieDetails = new MovieDetailInfo();
                     string movieDetailsJsonString = await response.Content.ReadAsStringAsync();
                     JObject movieDetailsJsonObject = JObject.Parse(movieDetailsJsonString);
                     movieDetails.adult = Convert.ToBoolean(movieDetailsJsonObject.GetValue("adult").ToString());
@@ -410,6 +410,48 @@ namespace Personal.Movie.Database.TMDbAPI
                     movieDetails.voteAverage = Convert.ToDecimal(movieDetailsJsonObject.GetValue("vote_average").ToString());
                     movieDetails.voteCount = Convert.ToInt32(movieDetailsJsonObject.GetValue("vote_count").ToString());
                     return movieDetails;
+                }
+                catch (Exception ex)
+                {
+                    return null;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Get Movie Videos By Movie ID.
+        /// </summary>
+        /// <returns></returns>
+        public async static Task<List<MovieVideo>> GetMovieVideos(int? movieID)
+        {
+            // Request TMDb API To Get Movie Videos By Movie ID
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = new Uri(APIConstant.TMDBBASEURL);
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    HttpResponseMessage response = await client.GetAsync(APIConstant.GETMOVIEVIDEOSURL.
+                        Replace("**********", movieID.ToString()));
+                    // Parse Json
+                    List<MovieVideo> movieVideos = new List<MovieVideo>();
+                    string movieVideosJsonString = await response.Content.ReadAsStringAsync();
+                    JObject movieVideosJsonObject = JObject.Parse(movieVideosJsonString);
+                    JArray movieVideosJsonArray = (JArray)movieVideosJsonObject.GetValue("results");
+                    foreach (JObject mv in movieVideosJsonArray) {
+                        MovieVideo movieVideo = new MovieVideo();
+                        movieVideo.movieVideoID = mv.GetValue("id").ToString();
+                        movieVideo.languageCode = mv.GetValue("iso_639_1").ToString();
+                        movieVideo.countryCode = mv.GetValue("iso_3166_1").ToString();
+                        movieVideo.videoURL = "http://www.youtube.com/embed/" + mv.GetValue("key").ToString() 
+                            + "?autoplay=0";
+                        movieVideo.videoName = mv.GetValue("name").ToString();
+                        movieVideo.videoSize = Convert.ToInt32(mv.GetValue("size").ToString());
+                        movieVideo.videoType = mv.GetValue("type").ToString();
+                        movieVideos.Add(movieVideo);
+                    }
+                    return movieVideos;
                 }
                 catch (Exception ex)
                 {
