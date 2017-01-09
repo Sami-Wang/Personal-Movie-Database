@@ -64,16 +64,18 @@
             <p>@productionCompaniesString.Substring(0, @productionCompaniesString.Length - 2)</p>
         }
         <!-- Budget -->
-        @if (Model.budget != null)
+        @if (Model.budget != 0)
         {
             <h3>Budget</h3>
-            <p>@Model.budget</p>
+            <p hidden id="budgetValue">@Model.budget</p>
+            <p id="budgetString"></p>
         }
         <!-- Revenue -->
-        @if (Model.revenue != null)
+        @if (Model.revenue != 0)
         {
             <h3>Revenue</h3>
-            <p>@Model.revenue</p>
+            <p hidden id="revenueValue">@Model.revenue</p>
+            <p id="revenueString"></p>
         }
         <!-- Spoken Languages -->
         <h3>Spoken Languages</h3>
@@ -149,3 +151,15 @@
         </div>
     }
 </div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script>
+    var budgetValue = $("#budgetValue").text();
+    budgetString = "$ " + budgetValue.toString().replace(/(^|\s)\d+/g, (m) => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','));
+    $("#budgetString").text(budgetString);
+
+    var revenueValue = $("#revenueValue").text();
+    revenueString = "$ " + revenueValue.toString().replace(/(^|\s)\d+/g, (m) => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','));
+    $("#revenueString").text(revenueString);
+</script>
