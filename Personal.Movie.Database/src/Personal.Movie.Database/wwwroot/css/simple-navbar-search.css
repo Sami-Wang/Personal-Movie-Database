@@ -1,0 +1,84 @@
+﻿body {
+    padding: 60px 0px;
+}
+.navbar-collapse {
+    position: relative;
+	padding-top: 30px !important;
+	max-height: 270px;
+}
+.navbar-collapse form[role="search"] {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	z-index: 0;
+}
+.navbar-collapse form[role="search"] button,
+.navbar-collapse form[role="search"] input {
+	padding: 8px 12px;
+	border-radius: 0px;
+	border-width: 0px;
+	color: rgb(119, 119, 119);
+	background-color: rgb(248, 248, 248);
+	border-color: rgb(231, 231, 231);
+	box-shadow: none;
+	outline: none;
+}
+.navbar-collapse form[role="search"] input {
+	padding: 16px 12px;
+	font-size: 14pt;
+	font-style: italic;
+	color: rgb(160, 160, 160);
+	box-shadow: none;
+}
+.navbar-collapse form[role="search"] button[type="reset"] {
+	display: none;
+}
+
+@media (min-width: 768px) {
+	.navbar-collapse {
+	    padding-top: 0px !important;
+		padding-right: 38px !important;
+	}
+	.navbar-collapse form[role="search"] {
+		width: 38px;
+	}
+	.navbar-collapse form[role="search"] button,
+	.navbar-collapse form[role="search"] input {
+		padding: 15px 12px;
+	}
+	.navbar-collapse form[role="search"] input {
+		font-size: 18pt;
+		opacity: 0;
+		display: none;            
+        height: 50px;
+	}
+	.navbar-collapse form[role="search"].active {
+		width: 100%;
+	}
+    .navbar-collapse form[role="search"].active button,
+	.navbar-collapse form[role="search"].active input {
+		display: inline;
+		opacity: 1;
+	}
+    .navbar-collapse form[role="search"].active input {
+		width: 100%;
+	}
+}
+
+
+.navbar-form .input-group {
+      width: 100%;
+}
+/* override width: auto; that showed up in 3.2.0
+   with at least 1px for the addon or btn (I had an addon) */
+.navbar-form .input-group .input-group-addon,
+.navbar-form .input-group .input-group-btn {
+      width: 1px;
+}
+/* separate .form-control and give it width: 100%; */
+.navbar-form .input-group .form-control {
+        width: 100%;
+}
