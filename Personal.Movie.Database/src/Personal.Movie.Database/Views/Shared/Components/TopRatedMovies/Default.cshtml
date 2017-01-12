@@ -21,8 +21,16 @@
             </a>
             <div>
                 <a asp-controller="Home" asp-action="MovieDetailsInfo" asp-route-id=@Model[0].id>
-                    <h5 style="font-weight: bold; text-align:center">@Model[0].title (@DateTime.Parse(Model[0].releaseDate.ToString()).Year)</h5>
+                    @if (Model[0].releaseDate == null)
+                    {
+                        <h5 style="font-weight: bold; text-align:center">@Model[0].title</h5>
+                    }
+                    else
+                    {
+                        <h5 style="font-weight: bold; text-align:center">@Model[0].title (@DateTime.Parse(Model[0].releaseDate.ToString()).Year)</h5>
+                    }
                 </a>
+
             </div>
         </div>
         @for (int i = 1; i < Model.Count; i++)
@@ -33,7 +41,14 @@
                 </a>
                 <div>
                     <a asp-controller="Home" asp-action="MovieDetailsInfo" asp-route-id=@Model[i].id>
-                        <h5 style="font-weight: bold; text-align:center">@Model[i].title (@DateTime.Parse(Model[i].releaseDate.ToString()).Year)</h5>
+                        @if (Model[i].releaseDate == null)
+                        {
+                            <h5 style="font-weight: bold; text-align:center">@Model[i].title</h5>
+                        }
+                        else
+                        {
+                            <h5 style="font-weight: bold; text-align:center">@Model[i].title (@DateTime.Parse(Model[i].releaseDate.ToString()).Year)</h5>
+                        }
                     </a>
                 </div>
             </div>

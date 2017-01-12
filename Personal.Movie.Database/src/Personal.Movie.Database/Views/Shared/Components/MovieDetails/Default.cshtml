@@ -95,7 +95,7 @@
             <p>@DateTime.Parse(Model.releaseDate.ToString()).Year-@DateTime.Parse(Model.releaseDate.ToString()).Month-@DateTime.Parse(Model.releaseDate.ToString()).Day</p>
         }
         <!-- Runtime -->
-        @if (Model.runtime != null)
+        @if (Model.runtime != 0)
         {
             <h3>Runtime</h3>
             <p>@Model.runtime minutes</p>
