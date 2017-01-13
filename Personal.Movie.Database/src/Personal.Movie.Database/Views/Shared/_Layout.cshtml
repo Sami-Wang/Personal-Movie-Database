@@ -56,8 +56,16 @@
             </div>
             </div>
     </nav>
-    
+
     <div class="container">
+        <div class="col-lg-12">
+            <!-- Personal_Movie_Database -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-0384487624654586"
+                 data-ad-slot="4873342266"
+                 data-ad-format="auto"></ins>
+        </div>
         @RenderBody()
         <hr />
         <footer>
@@ -106,7 +114,6 @@
                     $input = $form.find('input');
                 $form.addClass('active');
                 $input.focus();
-
             });
 
             // if your form is ajax remember to call `closeSearch()` to close the search container
@@ -114,9 +121,20 @@
                 event.preventDefault();
                 var $form = $(this).closest('form'),
                     $input = $form.find('input');
-                window.location.href = "/Home/SearchMovies?movieTitle=" + $input.val();
+                if ($input.val().trim() != "") {
+                    window.location.href = "/Home/SearchMovies?movieTitle=" + $input.val();
+                }
+                else {
+                    closeSearch();
+                }
             });
         });
+    </script>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 
     @RenderSection("scripts", required: false)
