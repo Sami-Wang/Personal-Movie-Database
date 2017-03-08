@@ -1,0 +1,55 @@
+﻿-d:RELEASE
+-d:TRACE
+-d:NET451
+-nowarn:CS1701
+-nowarn:CS1702
+-nowarn:CS1705
+-optimize
+-t:library
+-debug:full
+-nostdlib
+-nologo
+"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\obj\Release\net451\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\bin\Release\net451\Personal.Movie.Database.DBConnection.dll"
+-r:"C:\Users\yihang\.nuget\packages\Dapper\1.50.2\lib\net451\Dapper.dll"
+-r:"C:\Users\yihang\.nuget\packages\MySql.Data\6.9.9\lib\net45\MySql.Data.dll"
+-r:"C:\Users\yihang\.nuget\packages\Personal.Movie.Database.Model\1.0.0\lib\net451\Personal.Movie.Database.Model.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Collections.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Collections.Concurrent.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Diagnostics.Debug.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Diagnostics.Tools.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Diagnostics.Tracing.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Globalization.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.IO.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.IO.Compression.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Linq.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Linq.Expressions.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.Net.Http.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Net.Primitives.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.ObjectModel.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Reflection.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Reflection.Extensions.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Reflection.Primitives.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Resources.ResourceManager.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Runtime.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Runtime.Extensions.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Runtime.InteropServices.dll"
+-r:"C:\Users\yihang\.nuget\packages\System.Runtime.InteropServices.RuntimeInformation\4.0.0\ref\netstandard1.1\System.Runtime.InteropServices.RuntimeInformation.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Runtime.Numerics.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Text.Encoding.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Text.Encoding.Extensions.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Text.RegularExpressions.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Threading.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Threading.Tasks.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Threading.Timer.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Xml.ReaderWriter.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Facades\System.Xml.XDocument.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\mscorlib.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.Core.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\Microsoft.CSharp.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.Data.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.Xml.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.Xml.Linq.dll"
+"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\ManageUser.cs"
+"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\Properties\AssemblyInfo.cs"

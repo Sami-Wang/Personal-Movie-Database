@@ -17,15 +17,6 @@
           "lib/net451/Dapper.dll": {}
         }
       },
-      "Google.Protobuf/3.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Google.Protobuf.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Google.Protobuf.dll": {}
-        }
-      },
       "Microsoft.NETCore.Platforms/1.0.1": {
         "type": "package",
         "compile": {
@@ -35,28 +26,13 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "MySql.Data/7.0.6-IR31": {
+      "MySql.Data/6.9.9": {
         "type": "package",
-        "dependencies": {
-          "Google.Protobuf": "3.0.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0"
-        },
-        "frameworkAssemblies": [
-          "System.ComponentModel.DataAnnotations",
-          "System.Configuration",
-          "System.Configuration.Install",
-          "System.Data",
-          "System.Drawing",
-          "System.Drawing.Design",
-          "System.Management",
-          "System.Transactions",
-          "System.Xml"
-        ],
         "compile": {
-          "lib/net451/MySql.Data.dll": {}
+          "lib/net45/MySql.Data.dll": {}
         },
         "runtime": {
-          "lib/net451/MySql.Data.dll": {}
+          "lib/net45/MySql.Data.dll": {}
         }
       },
       "NETStandard.Library/1.6.0": {
@@ -468,15 +444,6 @@
           "lib/net451/Dapper.dll": {}
         }
       },
-      "Google.Protobuf/3.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Google.Protobuf.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Google.Protobuf.dll": {}
-        }
-      },
       "Microsoft.NETCore.Platforms/1.0.1": {
         "type": "package",
         "compile": {
@@ -499,28 +466,13 @@
           "lib/net46/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MySql.Data/7.0.6-IR31": {
+      "MySql.Data/6.9.9": {
         "type": "package",
-        "dependencies": {
-          "Google.Protobuf": "3.0.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.0.0"
-        },
-        "frameworkAssemblies": [
-          "System.ComponentModel.DataAnnotations",
-          "System.Configuration",
-          "System.Configuration.Install",
-          "System.Data",
-          "System.Drawing",
-          "System.Drawing.Design",
-          "System.Management",
-          "System.Transactions",
-          "System.Xml"
-        ],
         "compile": {
-          "lib/net451/MySql.Data.dll": {}
+          "lib/net45/MySql.Data.dll": {}
         },
         "runtime": {
-          "lib/net451/MySql.Data.dll": {}
+          "lib/net45/MySql.Data.dll": {}
         }
       },
       "NETStandard.Library/1.6.0": {
@@ -1173,31 +1125,6 @@
           "lib/netstandard1.3/Dapper.dll": {}
         }
       },
-      "Google.Protobuf/3.0.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Collections": "4.0.11",
-          "System.Diagnostics.Debug": "4.0.11",
-          "System.Globalization": "4.0.11",
-          "System.IO": "4.1.0",
-          "System.Linq": "4.1.0",
-          "System.Linq.Expressions": "4.1.0",
-          "System.ObjectModel": "4.0.12",
-          "System.Reflection": "4.1.0",
-          "System.Reflection.Extensions": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.RegularExpressions": "4.1.0",
-          "System.Threading": "4.0.11"
-        },
-        "compile": {
-          "lib/netstandard1.0/Google.Protobuf.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.0/Google.Protobuf.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -1404,10 +1331,9 @@
           }
         }
       },
-      "MySql.Data/7.0.6-IR31": {
+      "MySql.Data/6.10.1-beta": {
         "type": "package",
         "dependencies": {
-          "Google.Protobuf": "3.0.0",
           "Microsoft.Extensions.Configuration.Json": "1.0.0",
           "System.Collections.NonGeneric": "4.0.1",
           "System.ComponentModel": "4.0.1",
@@ -3251,19 +3177,6 @@
         "lib/netstandard1.3/Dapper.xml"
       ]
     },
-    "Google.Protobuf/3.0.0": {
-      "sha512": "l5CH4IoWys8hIQR53F+nM3RpFOX12Jj9iXVOh30ejoz0TRHApzvAHc+5T5mGnMWa/vCVfYFZkhqStn+IuK8+5g==",
-      "type": "package",
-      "path": "Google.Protobuf/3.0.0",
-      "files": [
-        "Google.Protobuf.3.0.0.nupkg.sha512",
-        "Google.Protobuf.nuspec",
-        "lib/net45/Google.Protobuf.dll",
-        "lib/net45/Google.Protobuf.xml",
-        "lib/netstandard1.0/Google.Protobuf.dll",
-        "lib/netstandard1.0/Google.Protobuf.xml"
-      ]
-    },
     "Microsoft.CSharp/4.0.1": {
       "sha512": "17h8b5mXa87XYKrrVqdgZ38JefSUqLChUQpXgSnpzsM0nDOhE40FTeNWOJ/YmySGV6tG6T8+hjz6vxbknHJr6A==",
       "type": "package",
@@ -3507,13 +3420,27 @@
         "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll"
       ]
     },
-    "MySql.Data/7.0.6-IR31": {
-      "sha512": "PFMjB4pLdMT0lIGySbP5NVWPriqdA3ZqvLzpHTc/60VkCIAin2dZJIb6A+km9pe3At0rl7ngj4eq06t69YEJXQ==",
+    "MySql.Data/6.9.9": {
+      "sha512": "rhpv2iJBqvvHU9gkhn/OZfhanQT/jZpfovyO9TEbJl5jLKMvABgxSkIPQbubrvR04M2/ZtdTeI9fC9WSkBe2wA==",
       "type": "package",
-      "path": "MySql.Data/7.0.6-IR31",
+      "path": "MySql.Data/6.9.9",
       "files": [
-        "Content/ReleaseNotes.txt",
-        "MySql.Data.7.0.6-IR31.nupkg.sha512",
+        "CHANGES",
+        "MySql.Data.6.9.9.nupkg.sha512",
+        "MySql.Data.nuspec",
+        "Readme.txt",
+        "content/app.config.transform",
+        "content/web.config.transform",
+        "lib/net40/MySql.Data.dll",
+        "lib/net45/MySql.Data.dll"
+      ]
+    },
+    "MySql.Data/6.10.1-beta": {
+      "sha512": "AqQJHVV6j6n9K+SplhtkOVzezX9/iVWw6LMaheMwq0PYxv4LK7cl0HjhZogAbE7lL6xFa19DMqcl5dNb+BaSEw==",
+      "type": "package",
+      "path": "MySql.Data/6.10.1-beta",
+      "files": [
+        "MySql.Data.6.10.1-beta.nupkg.sha512",
         "MySql.Data.nuspec",
         "README",
         "lib/net451/MySql.Data.dll",
@@ -3558,7 +3485,7 @@
       ]
     },
     "Personal.Movie.Database.Model/1.0.0": {
-      "sha512": "el07zG1lvGtIfAYkz1O3BaUvyuqmFWTDLqdJqBO8XAxTbufsj2hAmfbtrZSKQwVgrnWa0M8Fq3KBm2pId0oSFw==",
+      "sha512": "nZmkcCWH6z1xGJm2iQPQQevdY70ETeam4HJZXWdoOxl0qRLleSzufv1FT/BdSDL4fWqvifOybdgRKX4xXg9w4g==",
       "type": "package",
       "path": "Personal.Movie.Database.Model/1.0.0",
       "files": [
@@ -7684,13 +7611,18 @@
   "projectFileDependencyGroups": {
     "": [
       "Dapper >= 1.50.2",
-      "MySql.Data >= 7.0.6-IR31",
       "NETStandard.Library >= 1.6.0",
       "Personal.Movie.Database.Model >= 1.0.0"
     ],
-    ".NETFramework,Version=v4.5.1": [],
-    ".NETFramework,Version=v4.6.1": [],
-    ".NETStandard,Version=v1.6": []
+    ".NETFramework,Version=v4.5.1": [
+      "MySql.Data >= 6.9.9"
+    ],
+    ".NETFramework,Version=v4.6.1": [
+      "MySql.Data >= 6.9.9"
+    ],
+    ".NETStandard,Version=v1.6": [
+      "MySql.Data >= 6.10.1-beta"
+    ]
   },
   "tools": {},
   "projectFileToolGroups": {}

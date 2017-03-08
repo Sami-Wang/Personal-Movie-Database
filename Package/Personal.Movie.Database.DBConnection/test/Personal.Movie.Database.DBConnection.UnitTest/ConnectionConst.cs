@@ -3,6 +3,6 @@
     internal class ConnectionConst
     {
         internal const string CORRECTCONNECTIONSTRING =
-            "server=db4free.net;database=wyhdb;uid=wangyihang;pwd=0123456789;";
+            "SERVER=tommy.heliohost.org; PORT=3306; DATABASE=wyh_PersonalMovieDB; UID=wyh_pmdb; PASSWORD=Jv+R!K9t(ApK,)V5sq;";
     }
 }

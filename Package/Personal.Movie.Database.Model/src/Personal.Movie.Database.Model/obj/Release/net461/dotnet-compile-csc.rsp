@@ -59,6 +59,8 @@
 -r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Microsoft.CSharp.dll"
 -r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.IO.Compression.FileSystem.dll"
 -r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Net.Http.dll"
+"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\General\ResponseData.cs"
+"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\General\ResponseStatusEnum.cs"
 "C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\MovieModel\MovieBriefInfo.cs"
 "C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\MovieModel\MovieDetailInfo.cs"
 "C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\MovieModel\MovieVideo.cs"

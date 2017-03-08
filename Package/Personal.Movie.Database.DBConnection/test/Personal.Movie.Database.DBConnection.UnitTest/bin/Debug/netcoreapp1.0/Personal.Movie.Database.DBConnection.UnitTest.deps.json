@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "eb0eb580f32fdb4824ffe7b5caa65bd3773822ee"
+    "signature": "3a66a73276fa1aa87e94f445cb0b15b3150f1572"
   },
   "compilationOptions": {},
   "targets": {
@@ -32,11 +32,6 @@
         },
         "runtime": {
           "lib/netcoreapp1.0/dotnet-test-xunit.dll": {}
-        }
-      },
-      "Google.Protobuf/3.0.0": {
-        "runtime": {
-          "lib/netstandard1.0/Google.Protobuf.dll": {}
         }
       },
       "Microsoft.DiaSymReader/1.0.8": {
@@ -172,9 +167,8 @@
           "lib/netstandard1.6/Microsoft.Extensions.Testing.Abstractions.dll": {}
         }
       },
-      "MySql.Data/7.0.6-IR31": {
+      "MySql.Data/6.10.1-beta": {
         "dependencies": {
-          "Google.Protobuf": "3.0.0",
           "Microsoft.Extensions.Configuration.Json": "1.0.0",
           "System.Collections.NonGeneric": "4.0.1",
           "System.ComponentModel.Primitives": "4.1.0",
@@ -419,8 +413,8 @@
       },
       "Personal.Movie.Database.DBConnection/1.0.0": {
         "dependencies": {
+          "MySql.Data": "6.10.1-beta",
           "Dapper": "1.50.2",
-          "MySql.Data": "7.0.6-IR31",
           "Personal.Movie.Database.Model": "1.0.0"
         },
         "runtime": {
@@ -445,15 +439,10 @@
       "serviceable": true,
       "sha512": "sha512-mPl4HHGcXsE4ljw3sHCOUvlyhXHDpfFO6qz0HbTQrhrFT8Tgm/HFLfz6TpMXUfch7rRL23kR8i0yjQPYdsl6EQ=="
     },
-    "Google.Protobuf/3.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-l5CH4IoWys8hIQR53F+nM3RpFOX12Jj9iXVOh30ejoz0TRHApzvAHc+5T5mGnMWa/vCVfYFZkhqStn+IuK8+5g=="
-    },
     "Microsoft.DiaSymReader/1.0.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ABLULVhCAiyBFLBT5xX6vB4NhZDgwUylGRQK+zW5nZn2rbh1f8LOnFZ9gVSxzL6qOzPNb32Nu3QZ43iZerHOxA=="
+      "sha512": "sha512-HAhTmRgU+nnDVYxMZFAS1iwqg6CudbsSMZfSY9UJj4AJO4L69xZCtTOPKC5rW8+egNBWjDb0iBZV4ZdNI6dZnA=="
     },
     "Microsoft.DiaSymReader.Native/1.4.0-rc2": {
       "type": "package",
@@ -520,10 +509,10 @@
       "serviceable": true,
       "sha512": "sha512-q3Uq07d6LbYr0NiX5Dz9GCbXJv4vkmSbUvFEmov3Vo4prZWjhFzF+byk2tWAEEqtZ6ereMYXBUt99wCTtANk6Q=="
     },
-    "MySql.Data/7.0.6-IR31": {
+    "MySql.Data/6.10.1-beta": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PFMjB4pLdMT0lIGySbP5NVWPriqdA3ZqvLzpHTc/60VkCIAin2dZJIb6A+km9pe3At0rl7ngj4eq06t69YEJXQ=="
+      "sha512": "sha512-AqQJHVV6j6n9K+SplhtkOVzezX9/iVWw6LMaheMwq0PYxv4LK7cl0HjhZogAbE7lL6xFa19DMqcl5dNb+BaSEw=="
     },
     "Newtonsoft.Json/9.0.1": {
       "type": "package",

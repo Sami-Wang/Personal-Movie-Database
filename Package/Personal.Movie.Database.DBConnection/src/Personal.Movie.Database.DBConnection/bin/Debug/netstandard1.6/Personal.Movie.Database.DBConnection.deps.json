@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v1.6/",
-    "signature": "90d38779323620936c73bf7cc575822cefd6677c"
+    "signature": "442c707b8641a170d7589cb456aaba4f2af0376c"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,8 +9,8 @@
     ".NETStandard,Version=v1.6/": {
       "Personal.Movie.Database.DBConnection/1.0.0": {
         "dependencies": {
+          "MySql.Data": "6.10.1-beta",
           "Dapper": "1.50.2",
-          "MySql.Data": "7.0.6-IR31",
           "NETStandard.Library": "1.6.0",
           "Personal.Movie.Database.Model": "1.0.0"
         },
@@ -41,27 +41,6 @@
         },
         "runtime": {
           "lib/netstandard1.3/Dapper.dll": {}
-        }
-      },
-      "Google.Protobuf/3.0.0": {
-        "dependencies": {
-          "System.Collections": "4.0.11",
-          "System.Diagnostics.Debug": "4.0.11",
-          "System.Globalization": "4.0.11",
-          "System.IO": "4.1.0",
-          "System.Linq": "4.1.0",
-          "System.Linq.Expressions": "4.1.0",
-          "System.ObjectModel": "4.0.12",
-          "System.Reflection": "4.1.0",
-          "System.Reflection.Extensions": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Text.RegularExpressions": "4.1.0",
-          "System.Threading": "4.0.11"
-        },
-        "runtime": {
-          "lib/netstandard1.0/Google.Protobuf.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -200,9 +179,8 @@
           "System.Runtime.InteropServices": "4.1.0"
         }
       },
-      "MySql.Data/7.0.6-IR31": {
+      "MySql.Data/6.10.1-beta": {
         "dependencies": {
-          "Google.Protobuf": "3.0.0",
           "Microsoft.Extensions.Configuration.Json": "1.0.0",
           "System.Collections.NonGeneric": "4.0.1",
           "System.ComponentModel": "4.0.1",
@@ -1441,11 +1419,6 @@
       "serviceable": true,
       "sha512": "sha512-PhxIV8TI/5aYdLT4epuIZB+Evf0sv9gcQDpFGa04fSKDfNQIChRq0sKUgQbfpFWbuDW/UDDuiL3Grkhp/cvYrA=="
     },
-    "Google.Protobuf/3.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-l5CH4IoWys8hIQR53F+nM3RpFOX12Jj9iXVOh30ejoz0TRHApzvAHc+5T5mGnMWa/vCVfYFZkhqStn+IuK8+5g=="
-    },
     "Microsoft.CSharp/4.0.1": {
       "type": "package",
       "serviceable": true,
@@ -1511,10 +1484,10 @@
       "serviceable": true,
       "sha512": "sha512-q+eLtROUAQ3OxYA5mpQrgyFgzLQxIyrfT2eLpYX5IEPlHmIio2nh4F5bgOaQoGOV865kFKZZso9Oq9RlazvXtg=="
     },
-    "MySql.Data/7.0.6-IR31": {
+    "MySql.Data/6.10.1-beta": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PFMjB4pLdMT0lIGySbP5NVWPriqdA3ZqvLzpHTc/60VkCIAin2dZJIb6A+km9pe3At0rl7ngj4eq06t69YEJXQ=="
+      "sha512": "sha512-AqQJHVV6j6n9K+SplhtkOVzezX9/iVWw6LMaheMwq0PYxv4LK7cl0HjhZogAbE7lL6xFa19DMqcl5dNb+BaSEw=="
     },
     "NETStandard.Library/1.6.0": {
       "type": "package",
