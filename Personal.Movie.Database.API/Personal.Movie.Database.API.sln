@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D54CC071-B5CA-472E-BAAD-0804265B33BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CCBA3CF8-7EDB-4914-8BC0-5267DDB891D5}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Personal.Movie.Database.API", "src\Personal.Movie.Database.API\Personal.Movie.Database.API.xproj", "{2AA8C508-2643-4D11-8B2C-B1715DBFEFA1}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Personal.Movie.Database.API.IntegrationTest", "test\Personal.Movie.Database.API.IntegrationTest\Personal.Movie.Database.API.IntegrationTest.xproj", "{1C749CD8-3814-488D-8BB8-22BA7AB1A5B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AA8C508-2643-4D11-8B2C-B1715DBFEFA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AA8C508-2643-4D11-8B2C-B1715DBFEFA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AA8C508-2643-4D11-8B2C-B1715DBFEFA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AA8C508-2643-4D11-8B2C-B1715DBFEFA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C749CD8-3814-488D-8BB8-22BA7AB1A5B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C749CD8-3814-488D-8BB8-22BA7AB1A5B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C749CD8-3814-488D-8BB8-22BA7AB1A5B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C749CD8-3814-488D-8BB8-22BA7AB1A5B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2AA8C508-2643-4D11-8B2C-B1715DBFEFA1} = {D54CC071-B5CA-472E-BAAD-0804265B33BA}
+		{1C749CD8-3814-488D-8BB8-22BA7AB1A5B9} = {D54CC071-B5CA-472E-BAAD-0804265B33BA}
+	EndGlobalSection
+EndGlobal

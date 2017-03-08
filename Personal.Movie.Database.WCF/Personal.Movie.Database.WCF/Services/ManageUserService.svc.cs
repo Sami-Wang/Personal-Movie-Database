@@ -1,6 +1,6 @@
 ﻿using Personal.Movie.Database.DBConnection;
-using Personal.Movie.Database.Model.UserModel;
 using Personal.Movie.Database.Model.General;
+using Personal.Movie.Database.Model.UserModel;
 using Personal.Movie.Database.WCF.IServices;
 using System;
 using System.Collections.Generic;
