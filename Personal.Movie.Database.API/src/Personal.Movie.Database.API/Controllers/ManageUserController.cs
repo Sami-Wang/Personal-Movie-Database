@@ -7,6 +7,7 @@ using Personal.Movie.Database.API.IRepository;
 using Personal.Movie.Database.Model.General;
 using Personal.Movie.Database.Model.UserModel;
 using Personal.Movie.Database.API.Models.ManageUser;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -27,8 +28,47 @@ namespace Personal.Movie.Database.API.Controllers
         public async Task<ResponseData<ValidateUserResult>> ValidateUserNameAndPassword(
             [FromBody]ValidateUserNameAndPasswordInput validateUserNameAndPasswordInput)
         {
-            return await manageUserRepository.ValidateUserNameAndPassword(validateUserNameAndPasswordInput.userName,
-                validateUserNameAndPasswordInput.userPasswordHash);
+            try
+            {
+                if (User.Identity.IsAuthenticated)
+                {
+                    if (User.Claims.Single(r => r.Type == "role").Value ==
+                        Startup.Configuration.GetSection("AccessLevel").GetSection("AccessLevel1").Value)
+                    {
+                        return await manageUserRepository.ValidateUserNameAndPassword(
+                            validateUserNameAndPasswordInput.userName,
+                            validateUserNameAndPasswordInput.userPasswordHash);
+                    }
+                    else
+                    {
+                        return new ResponseData<ValidateUserResult>()
+                        {
+                            responseCode = (int)ResponseStatusEnum.AuthorizationFail,
+                            responseStatusDescription = "Authorization Fail",
+                            responseResults = null
+                        };
+                    }
+                }
+                else
+                {
+                    return new ResponseData<ValidateUserResult>()
+                    {
+                        responseCode = (int)ResponseStatusEnum.AuthenticationFail,
+                        responseStatusDescription = "Authentication Fail",
+                        responseResults = null
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+                return new ResponseData<ValidateUserResult>()
+                {
+                    responseCode = (int)ResponseStatusEnum.APIError,
+                    responseStatusDescription = "API Error",
+                    responseResults = null
+                };
+            }      
         }
     }
 }

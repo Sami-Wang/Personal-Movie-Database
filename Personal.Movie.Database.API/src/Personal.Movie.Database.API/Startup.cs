@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Personal.Movie.Database.API.IRepository;
 using Personal.Movie.Database.API.Repository;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Personal.Movie.Database.API
 {
@@ -32,6 +29,8 @@ namespace Personal.Movie.Database.API
             // Add framework services.
             services.AddMvc();
 
+            services.AddMvcCore().AddJsonFormatters().AddAuthorization();
+
             services.AddSingleton<IManageUserRepository, ManageUserRepository>();
         }
 
@@ -40,6 +39,20 @@ namespace Personal.Movie.Database.API
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            // Configure Authentication & Authorization Server
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+            app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
+            {
+                Authority = Configuration.GetSection("URL").Value,
+                RequireHttpsMetadata = false,
+                ApiName = Configuration.GetSection("Resource").GetSection("APIName").Value,
+                ApiSecret = Configuration.GetSection("Resource").GetSection("APISecrets").Value,
+                AllowedScopes = { Configuration.GetSection("Resource").GetSection("AllowedScope").Value },
+                AutomaticAuthenticate = true,
+                AutomaticChallenge = true
+            });
 
             app.UseMvc();
         }

@@ -26,6 +26,7 @@ namespace IdentityServer.Services
                         claimList.Add(new Claim("role", rolesFromDB[i].roleName));
                     }
                 }
+                context.IssuedClaims = claimList.Where(x => context.RequestedClaimTypes.Contains(x.Type)).ToList();
             }
             catch (Exception ex) {
                 Console.WriteLine(ex.Message.ToString());
