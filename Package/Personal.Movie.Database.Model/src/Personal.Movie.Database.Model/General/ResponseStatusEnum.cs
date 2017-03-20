@@ -7,6 +7,7 @@
         WCFServerError = 3,
         AuthenticationFail = 4,
         AuthorizationFail = 5,
-        APIError = 6
+        APIError = 6,
+        BadRequest = 7
     }
 }

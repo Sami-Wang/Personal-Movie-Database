@@ -10,7 +10,8 @@
       "NETCOREAPP1_0"
     ],
     "optimize": true,
-    "emitEntryPoint": true
+    "emitEntryPoint": true,
+    "xmlDoc": true
   },
   "targets": {
     ".NETCoreApp,Version=v1.0": {
@@ -4016,7 +4017,7 @@
     "Personal.Movie.Database.Model/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-yhRt95vsN5bXjgXN+HmEASUqJbTUuqSE+DIqCfPtmPAHjK15U9z1ev7x3XSeVoR+EkkTAy6iOnWMxODH92HcuQ=="
+      "sha512": "sha512-f6VZqUrznNDPP78Vy2Erhl6WvH1bDv/yJAZdlefjbkBDkgl5nkndcdsMylpIb4D1UEuW0RmsnUINey9EMum42A=="
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",

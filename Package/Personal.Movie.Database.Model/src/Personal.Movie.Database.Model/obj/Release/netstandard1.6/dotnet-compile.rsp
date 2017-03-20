@@ -1,5 +1,5 @@
---temp-output:C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\obj\Release\netstandard1.6\
---out:C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\bin\Release\netstandard1.6\Personal.Movie.Database.Model.dll
+--temp-output:C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\obj\Release\netstandard1.6\
+--out:C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\bin\Release\netstandard1.6\Personal.Movie.Database.Model.dll
 --define:RELEASE
 --define:TRACE
 --define:NETSTANDARD1_6
@@ -55,10 +55,10 @@
 --reference:C:\Users\yihang\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\yihang\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\yihang\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
-C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\General\ResponseData.cs
-C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\General\ResponseStatusEnum.cs
-C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\MovieModel\MovieBriefInfo.cs
-C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\MovieModel\MovieDetailInfo.cs
-C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\MovieModel\MovieVideo.cs
-C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\Properties\AssemblyInfo.cs
-C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\UserModel\ValidateUserResult.cs
+C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\General\ResponseData.cs
+C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\General\ResponseStatusEnum.cs
+C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\MovieModel\MovieBriefInfo.cs
+C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\MovieModel\MovieDetailInfo.cs
+C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\MovieModel\MovieVideo.cs
+C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\Properties\AssemblyInfo.cs
+C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.Model\src\Personal.Movie.Database.Model\UserModel\ValidateUserResult.cs

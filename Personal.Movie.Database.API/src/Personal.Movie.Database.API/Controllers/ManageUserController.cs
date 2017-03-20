@@ -24,7 +24,23 @@ namespace Personal.Movie.Database.API.Controllers
         private IManageUserRepository manageUserRepository;
 
         // POST http://localhost:62610/api/ManageUser/ValidateUserNameAndPassword
+        /// <summary>
+        /// Validate User Name And Password.
+        /// </summary>
+        /// <remarks>
+        /// Example Input:
+        ///  
+        ///     {
+        ///        "userName": "test_f",
+        ///        "userPasswordHash": "bb96c2fc40d2d54617d6f276febe571f623a8dadf0b734855299b0e107fda32cf6b69f2da32b36445d73690b93cbd0f7bfc20e0f7f28553d2a4428f23b716e90"
+        ///     }
+        /// 
+        /// </remarks>
+        /// <param name="validateUserNameAndPasswordInput"></param>
+        /// <returns></returns>
+        /// <response code="200"></response>
         [HttpPost, ActionName("ValidateUserNameAndPassword")]
+        [ProducesResponseType(typeof(ResponseData<ValidateUserResult>), 200)]
         public async Task<ResponseData<ValidateUserResult>> ValidateUserNameAndPassword(
             [FromBody]ValidateUserNameAndPasswordInput validateUserNameAndPasswordInput)
         {
@@ -35,9 +51,20 @@ namespace Personal.Movie.Database.API.Controllers
                     if (User.Claims.Single(r => r.Type == "role").Value ==
                         Startup.Configuration.GetSection("AccessLevel").GetSection("AccessLevel1").Value)
                     {
-                        return await manageUserRepository.ValidateUserNameAndPassword(
+                        if (ModelState.IsValid)
+                        {
+                            return await manageUserRepository.ValidateUserNameAndPassword(
                             validateUserNameAndPasswordInput.userName,
                             validateUserNameAndPasswordInput.userPasswordHash);
+                        }
+                        else {
+                            return new ResponseData<ValidateUserResult>()
+                            {
+                                responseCode = (int)ResponseStatusEnum.BadRequest,
+                                responseStatusDescription = "Bad Request",
+                                responseResults = null
+                            };
+                        }
                     }
                     else
                     {

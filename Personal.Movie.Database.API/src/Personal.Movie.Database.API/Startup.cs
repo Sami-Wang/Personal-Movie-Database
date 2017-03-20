@@ -3,12 +3,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.PlatformAbstractions;
 using Personal.Movie.Database.API.Helpers;
 using Personal.Movie.Database.API.IRepository;
 using Personal.Movie.Database.API.Repository;
 using Swashbuckle.AspNetCore.Swagger;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Linq;
 
 namespace Personal.Movie.Database.API
@@ -42,9 +44,9 @@ namespace Personal.Movie.Database.API
             {
                 c.SwaggerDoc("v1", new Info
                 {
-                    Title = "Personal.Movie.Database API",
+                    Title = "Personal Movie Database API Documentation",
                     Version = "v1",
-                    Description = "The documents for all APIs of Personal.Movie.Database project.",
+                    Description = "The documentations for all APIs of Personal.Movie.Database project.",
                     TermsOfService = "None",
                     Contact = new Contact
                     {
@@ -66,6 +68,11 @@ namespace Personal.Movie.Database.API
 
                 // Assign scope requirements to operations based on AuthorizeAttribute
                 c.OperationFilter<SecurityRequirementsOperationFilter>();
+
+                //Set the comments path for the swagger json and ui.
+                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+                var xmlPath = Path.Combine(basePath, "Personal.Movie.Database.API.xml");
+                c.IncludeXmlComments(xmlPath);
             });
         }
 
@@ -101,7 +108,7 @@ namespace Personal.Movie.Database.API
             app.UseSwaggerUi(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Personal.Movie.Database V1");
-                c.ConfigureOAuth2("2", "Swagger00..", "", "");
+                //c.ConfigureOAuth2("2", "Swagger00..", "", "");
             });
         }
     }

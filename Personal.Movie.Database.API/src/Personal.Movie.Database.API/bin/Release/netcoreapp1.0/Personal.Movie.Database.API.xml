@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Personal.Movie.Database.API</name>
+    </assembly>
+    <members>
+        <member name="M:Personal.Movie.Database.API.Controllers.ManageUserController.ValidateUserNameAndPassword(Personal.Movie.Database.API.Models.ManageUser.ValidateUserNameAndPasswordInput)">
+            <summary>
+            Validate User Name And Password.
+            </summary>
+            <remarks>
+            Example Input:
+             
+                {
+                   "userName": "test_f",
+                   "userPasswordHash": "bb96c2fc40d2d54617d6f276febe571f623a8dadf0b734855299b0e107fda32cf6b69f2da32b36445d73690b93cbd0f7bfc20e0f7f28553d2a4428f23b716e90"
+                }
+            
+            </remarks>
+            <param name="validateUserNameAndPasswordInput"></param>
+            <returns></returns>
+            <response code="200"></response>
+        </member>
+    </members>
+</doc>
