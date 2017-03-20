@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "a6b01bf052df44d38b77cdeccb4278be56b5bc31"
+    "signature": "6d0f68e387efaa9c2fe2121b3e734b2807a7a786"
   },
   "compilationOptions": {},
   "targets": {
@@ -548,6 +548,18 @@
           "lib/netstandard1.3/Microsoft.AspNetCore.Server.Kestrel.dll": {}
         }
       },
+      "Microsoft.AspNetCore.StaticFiles/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "1.0.0",
+          "Microsoft.AspNetCore.Http.Extensions": "1.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
+          "Microsoft.Extensions.WebEncoders": "1.0.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.StaticFiles.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.TestHost/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting": "1.0.0",
@@ -771,6 +783,15 @@
         },
         "runtime": {
           "lib/netstandard1.0/Microsoft.Extensions.FileProviders.Composite.dll": {}
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Embedded/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Abstractions": "1.0.0",
+          "System.Runtime.Extensions": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Microsoft.Extensions.FileProviders.Embedded.dll": {}
         }
       },
       "Microsoft.Extensions.FileProviders.Physical/1.0.0": {
@@ -1224,6 +1245,44 @@
             "rid": "ubuntu.16.10-x64",
             "assetType": "native"
           }
+        }
+      },
+      "Swashbuckle.AspNetCore/1.0.0-rc3": {
+        "dependencies": {
+          "Swashbuckle.AspNetCore.Swagger": "1.0.0-rc3",
+          "Swashbuckle.AspNetCore.SwaggerGen": "1.0.0-rc3",
+          "Swashbuckle.AspNetCore.SwaggerUI": "1.0.0-rc3"
+        }
+      },
+      "Swashbuckle.AspNetCore.Swagger/1.0.0-rc3": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "1.0.1",
+          "Microsoft.AspNetCore.Mvc.Formatters.Json": "1.0.1"
+        },
+        "runtime": {
+          "lib/netstandard1.6/Swashbuckle.AspNetCore.Swagger.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerGen/1.0.0-rc3": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.ApiExplorer": "1.0.1",
+          "Microsoft.AspNetCore.Mvc.Core": "1.0.1",
+          "Microsoft.AspNetCore.Mvc.DataAnnotations": "1.0.1",
+          "Swashbuckle.AspNetCore.Swagger": "1.0.0-rc3"
+        },
+        "runtime": {
+          "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerUI/1.0.0-rc3": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Routing": "1.0.1",
+          "Microsoft.AspNetCore.StaticFiles": "1.0.0",
+          "Microsoft.Extensions.FileProviders.Embedded": "1.0.0",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "runtime": {
+          "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
         }
       },
       "System.Collections/4.3.0": {
@@ -2198,7 +2257,8 @@
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "Personal.Movie.Database.Model": "1.0.0",
-          "IdentityServer4.AccessTokenValidation": "1.0.5"
+          "IdentityServer4.AccessTokenValidation": "1.0.5",
+          "Swashbuckle.AspNetCore": "1.0.0-rc3"
         },
         "runtime": {
           "Personal.Movie.Database.API.dll": {}
@@ -2427,6 +2487,11 @@
       "serviceable": true,
       "sha512": "sha512-GrTVDsRR6j2WrrTuNsZkG1R8aV1UbsA8TKUD+MKVSpXIoEpQNryCT181Zu94CARowQwFQdW4Q1DwfO4FdAhXiQ=="
     },
+    "Microsoft.AspNetCore.StaticFiles/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pXiUBJtpO0fIlGEg/ESykhbIZ2+I+9Y+3qXzN19zZDDF+tD88eATg3A5MHMXu/VmqaROLfvpGJmJ6uOLUGsBVQ=="
+    },
     "Microsoft.AspNetCore.TestHost/1.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2521,6 +2586,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-4nbDQfagNr1eILXSFZbTNuAKuZ6SsOyK6ySTMryo67ECi8+EcZBQ12E0aXcxX/aT3v+3pbWSt71NXlEm8tKIxw=="
+    },
+    "Microsoft.Extensions.FileProviders.Embedded/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mMCI3/BLXAyBCDneqOI4ohETd0IXjbXZdoiCm1dYdnOdV193ByEOCFQ6/Vn9RVdU5UlC4Nn1P4J5Df7pXG/vGg=="
     },
     "Microsoft.Extensions.FileProviders.Physical/1.0.0": {
       "type": "package",
@@ -2756,6 +2826,26 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-1uVTITQP8/cI6YoO6FqfW1pzP0k2TnDZ3TFD88Bu/9H7ZuTsMY9xmadbGpwPu8w8swcd1ifZJsjD9hF9O6C/tg=="
+    },
+    "Swashbuckle.AspNetCore/1.0.0-rc3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ct93K1ZG+gN3Air66XeVmLWSUqJmIEOL+oBkTd2bzErakdtiTJtz15bSiW6z4X60yOzGbw0tnPkkE47UT0Ob8g=="
+    },
+    "Swashbuckle.AspNetCore.Swagger/1.0.0-rc3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ITV0plnw+mi3mEHe0Bw1PVIxEsnWnYs0zJzGA3aVV2Nglb9ia1Vi7TChlL1Vaix4PnOYiK1XWDUScUW2L66MGg=="
+    },
+    "Swashbuckle.AspNetCore.SwaggerGen/1.0.0-rc3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZVmQpbXMK0Mtvyi0lTDglmqNZC3B+FreOQ3kyX7pcv0QLPXM7ZtzbAzRq7hT6tu17chPrHSLe/D2mv4TxJ/VPA=="
+    },
+    "Swashbuckle.AspNetCore.SwaggerUI/1.0.0-rc3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ankI8NF1nBhOClQB/Zr/0Omw2Q2LEe8pG9oxAgzzJp6nOJfGsrLmYaZjuI8aL0tzZ4/PiIyKgSzeJc+TZJTghg=="
     },
     "System.Collections/4.3.0": {
       "type": "package",

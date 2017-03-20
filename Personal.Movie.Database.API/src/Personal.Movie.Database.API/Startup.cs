@@ -3,9 +3,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Personal.Movie.Database.API.Helpers;
 using Personal.Movie.Database.API.IRepository;
 using Personal.Movie.Database.API.Repository;
+using Swashbuckle.AspNetCore.Swagger;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 
 namespace Personal.Movie.Database.API
 {
@@ -32,6 +36,37 @@ namespace Personal.Movie.Database.API
             services.AddMvcCore().AddJsonFormatters().AddAuthorization();
 
             services.AddSingleton<IManageUserRepository, ManageUserRepository>();
+
+            // Register the Swagger generator, defining one or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Title = "Personal.Movie.Database API",
+                    Version = "v1",
+                    Description = "The documents for all APIs of Personal.Movie.Database project.",
+                    TermsOfService = "None",
+                    Contact = new Contact
+                    {
+                        Name = "Yihang Wang",
+                        Email = "wyhliverpoolfc@gmail.com",
+                        Url = "https://github.com/wyhliverpoolfc/Personal-Movie-Database"
+                    }
+                });
+
+                c.AddSecurityDefinition("oauth2", new OAuth2Scheme
+                {
+                    Type = "oauth2",
+                    Flow = "application",
+                    Description = "OAuth 2.0 Client Credential Grant Type",
+                    TokenUrl = Configuration.GetSection("URL").Value + "connect/token",
+                    Scopes = Configuration.GetSection("SwaggerScopes").GetChildren().ToDictionary(
+                        ss => ss.Key, ss => ss.Value)
+                });
+
+                // Assign scope requirements to operations based on AuthorizeAttribute
+                c.OperationFilter<SecurityRequirementsOperationFilter>();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +90,19 @@ namespace Personal.Movie.Database.API
             });
 
             app.UseMvc();
+
+            app.UseStaticFiles();
+
+            app.UseMvcWithDefaultRoute();
+
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUi(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Personal.Movie.Database V1");
+                c.ConfigureOAuth2("2", "Swagger00..", "", "");
+            });
         }
     }
 }
