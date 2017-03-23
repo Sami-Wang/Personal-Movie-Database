@@ -14,10 +14,12 @@
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/css/simple-navbar-search.css" asp-append-version="true"/>
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" /> 
     </environment>
     @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+    <!-- Website Font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link href="~/css/register-login.css" rel="stylesheet" />
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -25,6 +27,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-header">
+
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -33,11 +36,15 @@
                     </button>
                     <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Personal Movie Database</a>
                 </div>
-           
-                <!-- Collect the nav links, forms, and other content for toggling -->               
+
+                <div class="navbar-right" style="padding-right:2%; padding-top: 0.5%">
+                    <a class="btn btn-primary" data-toggle="modal" data-target="#registerLoginModal">Register/Login</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
                 <form class="navbar-form" role="search">
                     <div class="input-group">
-                        <input type="text" class="form-control" style="width:100%; max-width:100%;"  placeholder="Search By Movie Title">
+                        <input type="text" class="form-control" style="width:100%; max-width:100%;" placeholder="Search By Movie Title">
                         <span class="input-group-btn">
                             <button type="reset" class="btn btn-default">
                                 <span class="glyphicon glyphicon-remove">
@@ -54,8 +61,152 @@
                     </div>
                 </form>
             </div>
-            </div>
+        </div>
     </nav>
+
+    <!-- Register/Login Modal -->
+    <div id="registerLoginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title" style="text-align: center">Welcome to Personal Movie Database!</h3>
+                </div>
+                <div class="modal-body">
+                    <ul id="registerLoginTab" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#login" data-toggle="tab">Login</a>
+                        </li>
+                        <li>
+                            <a href="#register" data-toggle="tab">Register</a>
+                        </li>
+                    </ul>
+                    <!-- Register/Login Tab -->
+                    <div id="registerLoginTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="login">
+                            <form>
+                                <div class="row" style="padding-top:5%;">                          
+                                    <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
+                                        <label>Username</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-user fa" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">                                
+                                    <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
+                                        <label>Password</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="password" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%; padding-top:14px">
+                                        <a class="btn btn-primary form-control">Login</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="register">
+                            <form>
+                                <div class="row" style="padding-top:5%;">
+                                    <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
+                                        <label>Username</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-user fa" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
+                                        <label>Password</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="password" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
+                                        <label>Confrim Password</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="password" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
+                                        <label>First Name</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-users fa" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
+                                        <label>Last Name</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-users fa" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
+                                        <label>Email</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-envelope fa" aria-hidden="true"></i>
+                                            </span>
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%; padding-top:14px">
+                                        <a class="btn btn-primary form-control">Register</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <div class="container">
         <div class="col-lg-12">

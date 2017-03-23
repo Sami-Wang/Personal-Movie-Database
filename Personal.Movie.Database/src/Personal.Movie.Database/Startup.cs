@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Personal.Movie.Database.Models.Account;
+using Microsoft.AspNetCore.Identity;
 
 namespace Personal.Movie.Database
 {
@@ -37,6 +39,10 @@ namespace Personal.Movie.Database
             services.AddApplicationInsightsTelemetry(Configuration);
 
             services.AddMvc();
+
+            services.AddIdentity<AccountUser, AccountRole>();
+            services.AddSingleton<IUserStore<AccountUser>, AccountUserStore<AccountUser>>();
+            services.AddSingleton<IRoleStore<AccountRole>, AccountRoleStore<AccountRole>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +64,8 @@ namespace Personal.Movie.Database
             }
 
             app.UseApplicationInsightsExceptionTelemetry();
+
+            app.UseIdentity();
 
             app.UseStaticFiles();
 
