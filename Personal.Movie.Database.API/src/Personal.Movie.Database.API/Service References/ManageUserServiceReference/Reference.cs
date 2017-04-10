@@ -18,6 +18,9 @@ namespace ManageUserServiceReference
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManageUserService/ValidateUserNameAndPassword", ReplyAction="http://tempuri.org/IManageUserService/ValidateUserNameAndPasswordResponse")]
         System.Threading.Tasks.Task<Personal.Movie.Database.Model.General.ResponseData<Personal.Movie.Database.Model.UserModel.ValidateUserResult>> ValidateUserNameAndPasswordAsync(string userName, string userPasswordHash);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IManageUserService/RegisterUser", ReplyAction="http://tempuri.org/IManageUserService/RegisterUserResponse")]
+        System.Threading.Tasks.Task<Personal.Movie.Database.Model.General.ResponseData<Personal.Movie.Database.Model.UserModel.ValidateUserResult>> RegisterUserAsync(string userName, string userPasswordHash, System.Nullable<int> userRoleID, string userFirstName, string userLastName, string userEmail);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "0.4.0.0")]
@@ -75,6 +78,11 @@ namespace ManageUserServiceReference
             return base.Channel.ValidateUserNameAndPasswordAsync(userName, userPasswordHash);
         }
         
+        public System.Threading.Tasks.Task<Personal.Movie.Database.Model.General.ResponseData<Personal.Movie.Database.Model.UserModel.ValidateUserResult>> RegisterUserAsync(string userName, string userPasswordHash, System.Nullable<int> userRoleID, string userFirstName, string userLastName, string userEmail)
+        {
+            return base.Channel.RegisterUserAsync(userName, userPasswordHash, userRoleID, userFirstName, userLastName, userEmail);
+        }
+        
         public virtual System.Threading.Tasks.Task OpenAsync()
         {
             return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndOpen));
@@ -103,7 +111,7 @@ namespace ManageUserServiceReference
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IManageUserService))
             {
-                return new System.ServiceModel.EndpointAddress("http://personalmoviedatabasewcf.azurewebsites.net/Services/ManageUserService.svc");
+                return new System.ServiceModel.EndpointAddress("http://personalmoviedatabasewcf.azurewebsites.net/services/ManageUserService.svc");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

@@ -9,8 +9,8 @@
 -debug:full
 -nostdlib
 -nologo
-"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\obj\Release\net451\dotnet-compile.assemblyinfo.cs"
--out:"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\bin\Release\net451\Personal.Movie.Database.DBConnection.dll"
+"C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\obj\Release\net451\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\bin\Release\net451\Personal.Movie.Database.DBConnection.dll"
 -r:"C:\Users\yihang\.nuget\packages\Dapper\1.50.2\lib\net451\Dapper.dll"
 -r:"C:\Users\yihang\.nuget\packages\MySql.Data\6.9.9\lib\net45\MySql.Data.dll"
 -r:"C:\Users\yihang\.nuget\packages\Personal.Movie.Database.Model\1.0.0\lib\net451\Personal.Movie.Database.Model.dll"
@@ -51,5 +51,5 @@
 -r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.Data.dll"
 -r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.Xml.dll"
 -r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.Xml.Linq.dll"
-"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\ManageUser.cs"
-"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\Properties\AssemblyInfo.cs"
+"C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\ManageUser.cs"
+"C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\Properties\AssemblyInfo.cs"

@@ -35,12 +35,11 @@ namespace Personal.Movie.Database.Models.Account
 
         public void Dispose()
         {
-            throw new NotImplementedException();
         }
 
         public Task<TUser> FindByIdAsync(string userId, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.FromResult<TUser>(null);
         }
 
         public Task<TUser> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken)
@@ -60,17 +59,17 @@ namespace Personal.Movie.Database.Models.Account
 
         public Task<IList<string>> GetRolesAsync(TUser user, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.FromResult<IList<string>>(user.Roles.Select(r => r.roleID).ToList());
         }
 
         public Task<string> GetUserIdAsync(TUser user, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(user.userID);
         }
 
         public Task<string> GetUserNameAsync(TUser user, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(user.userName);
         }
 
         public Task<IList<TUser>> GetUsersInRoleAsync(string roleName, CancellationToken cancellationToken)

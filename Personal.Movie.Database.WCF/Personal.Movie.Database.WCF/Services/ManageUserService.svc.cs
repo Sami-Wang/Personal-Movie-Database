@@ -36,5 +36,34 @@ namespace Personal.Movie.Database.WCF.Services
             }           
             return responseData;
         }
+
+        public async Task<ResponseData<ValidateUserResult>> RegisterUser(string userName, string userPasswordHash, 
+            int? userRoleID, string userFirstName, string userLastName, string userEmail)
+        {
+            ResponseData<ValidateUserResult> responseData = new ResponseData<ValidateUserResult>();
+            try
+            {
+                List<ValidateUserResult> validateUserResults = await ManageUser.RegisterUser(ConfigurationManager.AppSettings["ConnectionString"],
+                    userName, userPasswordHash, userRoleID, userFirstName, userLastName, userEmail);
+                if (validateUserResults == null)
+                {
+                    responseData.responseCode = (int)ResponseStatusEnum.DatabaseError;
+                    responseData.responseStatusDescription = "Database Error";
+                }
+                else
+                {
+                    responseData.responseCode = (int)ResponseStatusEnum.Success;
+                    responseData.responseStatusDescription = "Success";
+                }
+                responseData.responseResults = validateUserResults;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+                responseData.responseCode = (int)ResponseStatusEnum.WCFServerError;
+                responseData.responseStatusDescription = "WCF Error";
+            }
+            return responseData;
+        }
     }
 }

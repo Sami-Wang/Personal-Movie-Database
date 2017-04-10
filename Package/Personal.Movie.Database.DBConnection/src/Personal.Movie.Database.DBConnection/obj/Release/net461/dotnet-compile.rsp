@@ -1,5 +1,5 @@
---temp-output:C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\obj\Release\net461\
---out:C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\bin\Release\net461\Personal.Movie.Database.DBConnection.dll
+--temp-output:C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\obj\Release\net461\
+--out:C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\bin\Release\net461\Personal.Movie.Database.DBConnection.dll
 --define:RELEASE
 --define:TRACE
 --define:NET461
@@ -66,5 +66,5 @@
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Xml.Linq.dll
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.IO.Compression.FileSystem.dll
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Net.Http.dll
-C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\ManageUser.cs
-C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\Properties\AssemblyInfo.cs
+C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\ManageUser.cs
+C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\Properties\AssemblyInfo.cs

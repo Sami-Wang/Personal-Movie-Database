@@ -1,5 +1,5 @@
---temp-output:C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\test\Personal.Movie.Database.DBConnection.UnitTest\obj\Debug\netcoreapp1.0\
---out:C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\test\Personal.Movie.Database.DBConnection.UnitTest\bin\Debug\netcoreapp1.0\Personal.Movie.Database.DBConnection.UnitTest.dll
+--temp-output:C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\test\Personal.Movie.Database.DBConnection.UnitTest\obj\Debug\netcoreapp1.0\
+--out:C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\test\Personal.Movie.Database.DBConnection.UnitTest\bin\Debug\netcoreapp1.0\Personal.Movie.Database.DBConnection.UnitTest.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -133,7 +133,7 @@
 --reference:C:\Users\yihang\.nuget\packages\xunit.extensibility.execution\2.2.0-beta2-build3300\lib\netstandard1.0\xunit.execution.dotnet.dll
 --reference:C:\Users\yihang\.nuget\packages\xunit.runner.reporters\2.2.0-beta2-build3300\lib\netstandard1.1\xunit.runner.reporters.dotnet.dll
 --reference:C:\Users\yihang\.nuget\packages\xunit.runner.utility\2.2.0-beta2-build3300\lib\netstandard1.1\xunit.runner.utility.dotnet.dll
---reference:C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\bin\Debug\netstandard1.6\Personal.Movie.Database.DBConnection.dll
-C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\test\Personal.Movie.Database.DBConnection.UnitTest\ConnectionConst.cs
-C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\test\Personal.Movie.Database.DBConnection.UnitTest\ManageUserUnitTest.cs
-C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\test\Personal.Movie.Database.DBConnection.UnitTest\Properties\AssemblyInfo.cs
+--reference:C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\bin\Debug\netstandard1.6\Personal.Movie.Database.DBConnection.dll
+C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\test\Personal.Movie.Database.DBConnection.UnitTest\ConnectionConst.cs
+C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\test\Personal.Movie.Database.DBConnection.UnitTest\ManageUserUnitTest.cs
+C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\test\Personal.Movie.Database.DBConnection.UnitTest\Properties\AssemblyInfo.cs

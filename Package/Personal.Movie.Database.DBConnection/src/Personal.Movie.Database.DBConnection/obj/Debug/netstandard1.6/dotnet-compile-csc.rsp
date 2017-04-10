@@ -8,8 +8,8 @@
 -debug:full
 -nostdlib
 -nologo
-"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\obj\Debug\netstandard1.6\dotnet-compile.assemblyinfo.cs"
--out:"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\bin\Debug\netstandard1.6\Personal.Movie.Database.DBConnection.dll"
+"C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\obj\Debug\netstandard1.6\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\bin\Debug\netstandard1.6\Personal.Movie.Database.DBConnection.dll"
 -r:"C:\Users\yihang\.nuget\packages\Dapper\1.50.2\lib\netstandard1.3\Dapper.dll"
 -r:"C:\Users\yihang\.nuget\packages\Microsoft.CSharp\4.0.1\ref\netstandard1.0\Microsoft.CSharp.dll"
 -r:"C:\Users\yihang\.nuget\packages\Microsoft.Extensions.Configuration\1.0.0\lib\netstandard1.1\Microsoft.Extensions.Configuration.dll"
@@ -94,5 +94,5 @@
 -r:"C:\Users\yihang\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\yihang\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
 -r:"C:\Users\yihang\.nuget\packages\System.Xml.XmlDocument\4.0.1\ref\netstandard1.3\System.Xml.XmlDocument.dll"
-"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\ManageUser.cs"
-"C:\Users\yihang\Desktop\Personal-Movie-Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\Properties\AssemblyInfo.cs"
+"C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\ManageUser.cs"
+"C:\Users\yihang\Desktop\Personal.Movie.Database\Package\Personal.Movie.Database.DBConnection\src\Personal.Movie.Database.DBConnection\Properties\AssemblyInfo.cs"

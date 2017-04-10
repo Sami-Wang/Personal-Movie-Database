@@ -12,16 +12,19 @@ namespace Personal.Movie.Database.Controllers
     {
         public async Task<IActionResult> Index()
         {
+            ViewData["userName"] = User.Identity.Name;
             return View();
         }
 
         public async Task<IActionResult> MovieDetailsInfo(int? id)
         {
+            ViewData["userName"] = User.Identity.Name;
             return View(id);
         }
 
         public async Task<IActionResult> SearchMovies(string movieTitle)
         {
+            ViewData["userName"] = User.Identity.Name;
             List<MovieBriefInfo> searchMovies = await MovieEnquiry.SearchMovieByTitle(movieTitle);
             return View(searchMovies);
         }

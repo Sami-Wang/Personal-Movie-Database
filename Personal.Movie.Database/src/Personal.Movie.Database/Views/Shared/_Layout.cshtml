@@ -35,9 +35,25 @@
 
             <div class="navbar-collapse collapse" id="navbarCollapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a data-toggle="modal" data-target="#registerLoginModal" style="cursor:pointer">Register/Login</a>
-                    </li>
+                    @if (@ViewData["userName"] == null)
+                    {
+                        <li>
+                            <a data-toggle="modal" data-target="#registerLoginModal" style="cursor:pointer">Login/Register</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                @ViewData["UserName"]
+                                <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a asp-controller="Account" asp-action="Logout">Logout</a></li>
+                            </ul>
+                        </li>
+                    }
                 </ul>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -84,115 +100,124 @@
                     <!-- Register/Login Tab -->
                     <div id="registerLoginTabContent" class="tab-content">
                         <div class="tab-pane fade in active" id="login">
-                            <form>
+                            <form id="loginForm">
                                 <div class="row" style="padding-top:5%;">                          
                                     <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
-                                        <label>Username</label>
+                                        <label>Username *</label>
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-user fa" aria-hidden="true"></i>
                                             </span>
-                                            <input type="text" class="form-control" />
+                                            <input type="text" class="form-control" id="loginUsername" name="loginUsername"/>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">                                
                                     <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
-                                        <label>Password</label>
+                                        <label>Password *</label>
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
                                             </span>
-                                            <input type="password" class="form-control" />
+                                            <input type="password" class="form-control" id="loginPassword" name="loginPassword"/>
                                         </div>
                                     </div>
                                 </div>
 
+                                <div id="loginErrorMessage" class="row hidden">
+                                    <p class="text-danger" style="text-align:center">Sorry, Login Failed! Please Login Again!</p>
+                                </div>
+
                                 <div class="row">
                                     <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%; padding-top:14px">
-                                        <a class="btn btn-primary form-control">Login</a>
+                                        <input type="submit" id="loginSubmit" class="btn btn-primary form-control" value="Login" />
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div class="tab-pane fade" id="register">
-                            <form>
+                            <form id="registerUserForm">
                                 <div class="row" style="padding-top:5%;">
                                     <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
-                                        <label>Username</label>
+                                        <label>Username *</label>
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-user fa" aria-hidden="true"></i>
                                             </span>
-                                            <input type="text" class="form-control" />
+                                            <input type="text" class="form-control" id="registerUserUsername"
+                                                   name="registerUserUsername" autofocus/>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
-                                        <label>Password</label>
+                                        <label>Password *</label>
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
                                             </span>
-                                            <input type="password" class="form-control" />
+                                            <input type="password" class="form-control" id="registerUserPassword"
+                                                   name="registerUserPassword"/>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
-                                        <label>Confrim Password</label>
+                                        <label>Confrim Password *</label>
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
                                             </span>
-                                            <input type="password" class="form-control" />
+                                            <input type="password" class="form-control" id="registerUserPasswordConfirm"
+                                                   name="registerUserPasswordConfirm"/>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
-                                        <label>First Name</label>
+                                        <label>First Name *</label>
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-users fa" aria-hidden="true"></i>
                                             </span>
-                                            <input type="text" class="form-control" />
+                                            <input type="text" class="form-control" id="registerUserFirstName" name="registerUserFirstName"/>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
-                                        <label>Last Name</label>
+                                        <label>Last Name *</label>
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-users fa" aria-hidden="true"></i>
                                             </span>
-                                            <input type="text" class="form-control" />
+                                            <input type="text" class="form-control" id="registerUserLastName"
+                                                   name="registerUserLastName"/>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%;">
-                                        <label>Email</label>
+                                        <label>Email *</label>
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-envelope fa" aria-hidden="true"></i>
                                             </span>
-                                            <input type="text" class="form-control" />
+                                            <input type="email" class="form-control" id="registerUserEmail"
+                                                   name="registerUserEmail"/>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%; padding-top:14px">
-                                        <a class="btn btn-primary form-control">Register</a>
+                                        <input type="submit" id="registerUserSubmit" class="btn btn-primary form-control" value="Register" />
                                     </div>
                                 </div>
                             </form>
@@ -240,7 +265,163 @@
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+
     <script>
+        // Reset Login & Register Form When Modal Hide
+        $(function () {
+            $('#registerLoginModal').on('hidden.bs.modal', function () {
+                $('#loginForm').validate().resetForm();
+                $('#loginForm')[0].reset();
+                $('#loginErrorMessage').addClass("hidden");
+                $('#registerUserForm').validate().resetForm();
+                $('#registerUserForm')[0].reset();
+                $('.form-group').removeClass('has-error');
+            });
+        })
+
+        // Login Form Validate And Submit
+        $(function () {
+            $("#loginSubmit").click(function () {
+                $("#loginForm").validate({
+                    rules: {
+                        loginUsername: {
+                            required: true
+                        },
+                        loginPassword: {
+                            required: true
+                        }
+                    },
+
+                    messages: {
+                        loginUsername: {
+                            required: "* Username can't be blank"
+                        },
+                        loginPassword: {
+                            required: "* Password can't be blank"
+                        }
+                    },
+
+                    errorElement: 'span',
+                    errorClass: 'help-block',
+                    errorPlacement: function (error, element) {
+                        if (element.parent('.input-group').length) {
+                            error.insertAfter(element.parent());
+                        } else {
+                            error.insertAfter(element);
+                        }
+                    },
+
+                    highlight: function (element) {
+                        $(element).closest('.form-group').addClass('has-error');
+                    },
+                    unhighlight: function (element) {
+                        $(element).closest('.form-group').removeClass('has-error');
+                    },
+
+                    submitHandler: function () {
+                        // Post The Login Info To The Server
+                        $.post("/Account/Login",
+                            {
+                                userName: $("#loginUsername").val(),
+                                password: $("#loginPassword").val()
+                            },
+                            function (data) {
+                                if (data == true) {
+                                    location.reload();
+                                }
+                                else {
+                                    $("#loginErrorMessage").removeClass("hidden");
+                                }                  
+                            });
+                    }
+                });
+            });
+        });
+
+        // Register User Form Validate And Submit
+        $(function () {
+            $("#registerUserSubmit").click(function () {
+                $("#registerUserForm").validate({
+                    rules: {
+                        registerUserUsername: {
+                            required: true
+                        },
+                        registerUserPassword: {
+                            required: true
+                        },
+                        registerUserPasswordConfirm: {
+                            required: true,
+                            equalTo: "#registerUserPassword"
+                        },
+                        registerUserFirstName: {
+                            required: true
+                        },
+                        registerUserLastName: {
+                            required: true
+                        },
+                        registerUserEmail: {
+                            required: true,
+                            email: true
+                        }
+                    },
+
+                    messages: {
+                        registerUserUsername: {
+                            required: "* Username can't be blank"
+                        },
+                        registerUserPassword: {
+                            required: "* Password can't be blank"
+                        },
+                        registerUserPasswordConfirm: {
+                            required: "* Password confirmation can't be blank",
+                            equalTo: "* Password confirmation not match"
+                        },
+                        registerUserFirstName: {
+                            required: "* First name can't be blank"
+                        },
+                        registerUserLastName: {
+                            required: "* Last name can't be blank"
+                        },
+                        registerUserEmail: {
+                            required: "* Email can't be blank",
+                            email: "* Email format is not valid"
+                        }
+                    },
+
+                    errorElement: 'span',
+                    errorClass: 'help-block',
+                    errorPlacement: function (error, element) {
+                        if (element.parent('.input-group').length) {
+                            error.insertAfter(element.parent());
+                        } else {
+                            error.insertAfter(element);
+                        }
+                    },
+
+                    highlight: function (element) {
+                        $(element).closest('.form-group').addClass('has-error');
+                    },
+                    unhighlight: function (element) {
+                        $(element).closest('.form-group').removeClass('has-error');
+                    },
+
+                    submitHandler: function () {
+                        // Post The Register User Info To The Server
+                        $.post("/Account/Register",
+                            {
+                                userName: $("#registerUserUsername").val(),
+                                password: $("#registerUserPassword").val(),
+                                firstName: $("#registerUserFirstName").val(),
+                                lastName: $("#registerUserLastName").val(),
+                                email: $("#registerUserEmail").val()
+                            });
+                    }
+                });
+            });
+        });
+
+        // Search Bar
         $(function () {
             // Remove Search if user Resets Form or hits Escape!
             $('body, .navbar-collapse form[role="search"] button[type="reset"]').on('click keyup', function (event) {

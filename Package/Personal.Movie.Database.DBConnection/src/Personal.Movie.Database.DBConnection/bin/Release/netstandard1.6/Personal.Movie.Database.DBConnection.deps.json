@@ -1502,7 +1502,7 @@
     "Personal.Movie.Database.Model/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nZmkcCWH6z1xGJm2iQPQQevdY70ETeam4HJZXWdoOxl0qRLleSzufv1FT/BdSDL4fWqvifOybdgRKX4xXg9w4g=="
+      "sha512": "sha512-f6VZqUrznNDPP78Vy2Erhl6WvH1bDv/yJAZdlefjbkBDkgl5nkndcdsMylpIb4D1UEuW0RmsnUINey9EMum42A=="
     },
     "runtime.native.System/4.0.0": {
       "type": "package",

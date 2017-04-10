@@ -43,5 +43,27 @@ namespace Personal.Movie.Database.API.IntegrationTest
             Assert.Equal(Convert.ToInt32(httpResponseContent.GetValue("responseCode").ToString()),
                 (int)ResponseStatusEnum.Success);
         }
+
+        // Test http://localhost:62610/api/ManageUser/RegisterUser
+        [Fact]
+        public async Task RegisterUserPassingTest()
+        {
+            RegisterUserInput registerUserInput = new RegisterUserInput()
+            {
+                userName = Guid.NewGuid().ToString().Substring(0, 20),
+                userPasswordHash = "bb96c2fc40d2d54617d6f276febe571f623a8dadf0b734855299b0e107fda32cf6b69f2da32b36445d73690b93cbd0f7bfc20e0f7f28553d2a4428f23b716e90",
+                userRoleID = 1,
+                userFirstName = "Test",
+                userLastName = "Free",
+                userEmail = "test_free@gmail.com"
+            };
+            string registerUserInputJsonString = JsonConvert.SerializeObject(registerUserInput);
+            HttpResponseMessage httpResponse = await ConnectHelper.HttpPostHelper(httpClient,
+                registerUserInputJsonString, "ManageUser/RegisterUser");
+            Assert.Equal(httpResponse.StatusCode, HttpStatusCode.OK);
+            var httpResponseContent = JObject.Parse(await httpResponse.Content.ReadAsStringAsync());
+            Assert.Equal(Convert.ToInt32(httpResponseContent.GetValue("responseCode").ToString()),
+                (int)ResponseStatusEnum.Success);
+        }
     }
 }

@@ -203,6 +203,7 @@ C:\Users\yihang\Desktop\Personal.Movie.Database\Personal.Movie.Database.API\src\
 C:\Users\yihang\Desktop\Personal.Movie.Database\Personal.Movie.Database.API\src\Personal.Movie.Database.API\Controllers\ManageUserController.cs
 C:\Users\yihang\Desktop\Personal.Movie.Database\Personal.Movie.Database.API\src\Personal.Movie.Database.API\Helpers\SecurityRequirementsOperationFilter.cs
 C:\Users\yihang\Desktop\Personal.Movie.Database\Personal.Movie.Database.API\src\Personal.Movie.Database.API\IRepository\IManageUserRepository.cs
+C:\Users\yihang\Desktop\Personal.Movie.Database\Personal.Movie.Database.API\src\Personal.Movie.Database.API\Models\ManageUser\RegisterUserInput.cs
 C:\Users\yihang\Desktop\Personal.Movie.Database\Personal.Movie.Database.API\src\Personal.Movie.Database.API\Models\ManageUser\ValidateUserNameAndPasswordInput.cs
 C:\Users\yihang\Desktop\Personal.Movie.Database\Personal.Movie.Database.API\src\Personal.Movie.Database.API\Repository\ManageUserRepository.cs
 C:\Users\yihang\Desktop\Personal.Movie.Database\Personal.Movie.Database.API\src\Personal.Movie.Database.API\Service References\ManageUserServiceReference\Reference.cs

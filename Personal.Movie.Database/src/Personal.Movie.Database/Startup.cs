@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Personal.Movie.Database.Models.Account;
 using Microsoft.AspNetCore.Identity;
+using Personal.Movie.Database.IRepository;
+using Personal.Movie.Database.Repository;
 
 namespace Personal.Movie.Database
 {
@@ -30,7 +32,7 @@ namespace Personal.Movie.Database
             Configuration = builder.Build();
         }
 
-        public IConfigurationRoot Configuration { get; }
+        public static IConfigurationRoot Configuration { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -43,6 +45,8 @@ namespace Personal.Movie.Database
             services.AddIdentity<AccountUser, AccountRole>();
             services.AddSingleton<IUserStore<AccountUser>, AccountUserStore<AccountUser>>();
             services.AddSingleton<IRoleStore<AccountRole>, AccountRoleStore<AccountRole>>();
+
+            services.AddSingleton<IAccountRepository, AccountRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

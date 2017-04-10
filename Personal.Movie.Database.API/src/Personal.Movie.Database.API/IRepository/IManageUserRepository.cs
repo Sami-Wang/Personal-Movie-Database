@@ -8,5 +8,8 @@ namespace Personal.Movie.Database.API.IRepository
     {
         Task<ResponseData<ValidateUserResult>> ValidateUserNameAndPassword(string userName,
             string userPasswordHash);
+
+        Task<ResponseData<ValidateUserResult>> RegisterUser(string userName, string userPasswordHash,
+            int? userRoleID, string userFirstName, string userLastName, string userEmail);
     }
 }

@@ -26,5 +26,25 @@ namespace Personal.Movie.Database.API.Repository
             }
             return responseData;
         }
+
+        public async Task<ResponseData<ValidateUserResult>> RegisterUser(string userName, string userPasswordHash, 
+            int? userRoleID, string userFirstName, string userLastName, string userEmail)
+        {
+            ManageUserServiceClient client = new ManageUserServiceClient();
+            ResponseData<ValidateUserResult> responseData = new ResponseData<ValidateUserResult>();
+            try
+            {
+                responseData = await client.RegisterUserAsync(userName, userPasswordHash, userRoleID, userFirstName, 
+                    userLastName, userEmail);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+                responseData.responseCode = (int)ResponseStatusEnum.APIError;
+                responseData.responseStatusDescription = "API Error";
+                responseData.responseResults = null;
+            }
+            return responseData;
+        }
     }
 }

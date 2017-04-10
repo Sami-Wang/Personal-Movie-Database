@@ -21,5 +21,26 @@
             <returns></returns>
             <response code="200"></response>
         </member>
+        <member name="M:Personal.Movie.Database.API.Controllers.ManageUserController.RegisterUser(Personal.Movie.Database.API.Models.ManageUser.RegisterUserInput)">
+            <summary>
+            Register New User.
+            </summary>
+            <remarks>
+            Example Input:
+             
+                {
+                   "userName": "test_user",
+                   "userPasswordHash": "bb96c2fc40d2d54617d6f276febe571f623a8dadf0b734855299b0e107fda32cf6b69f2da32b36445d73690b93cbd0f7bfc20e0f7f28553d2a4428f23b716e90",
+                   "userRoleID": 1,
+                   "userFirstName": "Test",
+                   "userLastName": "Test",
+                   "userEmail": "test_free@gmail.com"
+                }
+            
+            </remarks>
+            <param name="registerUserInput"></param>
+            <returns></returns>
+            <response code="200"></response>
+        </member>
     </members>
 </doc>

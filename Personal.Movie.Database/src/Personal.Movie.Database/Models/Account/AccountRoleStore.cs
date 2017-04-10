@@ -28,7 +28,6 @@ namespace Personal.Movie.Database.Models.Account
 
         public void Dispose()
         {
-            throw new NotImplementedException();
         }
 
         public Task<TRole> FindByIdAsync(string roleId, CancellationToken cancellationToken)

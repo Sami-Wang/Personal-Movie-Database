@@ -22,7 +22,8 @@
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
     "Personal.Movie.Database.TMDbAPI": "1.0.0",
-    "Microsoft.AspNetCore.Identity": "1.0.0"
+    "Microsoft.AspNetCore.Identity": "1.0.0",
+    "Personal.Movie.Database.HttpRequestHelper": "1.0.0"
   },
 
   "tools": {

@@ -11,5 +11,9 @@ namespace Personal.Movie.Database.WCF.IServices
         [OperationContract]
         Task<ResponseData<ValidateUserResult>> ValidateUserNameAndPassword(string userName,
             string userPasswordHash);
+
+        [OperationContract]
+        Task<ResponseData<ValidateUserResult>> RegisterUser(string userName, string userPasswordHash,
+            int? userRoleID, string userFirstName, string userLastName, string userEmail);
     }
 }
