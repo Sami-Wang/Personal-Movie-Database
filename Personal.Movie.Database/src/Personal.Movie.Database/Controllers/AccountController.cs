@@ -24,16 +24,32 @@ namespace Personal.Movie.Database.Controllers
         }
 
         [HttpPost, ActionName("Register")]
-        public async Task<string> Register(RegisterInputParameter registerInputParameter)
+        public async Task<bool> Register(RegisterInputParameter registerInputParameter)
         {
             var validateUserResults = await accountRepository.Register(registerInputParameter);
-            return "Hello";
+            if (validateUserResults != null && validateUserResults.Count > 0)
+            {
+                AccountUser accountUser = new AccountUser();
+                accountUser.userID = Convert.ToString(validateUserResults[0].userID);
+                accountUser.userName = validateUserResults[0].userName;
+                accountUser.Roles.Add(new AccountMapUserRole()
+                {
+                    userID = Convert.ToString(validateUserResults[0].userID),
+                    roleID = Convert.ToString(validateUserResults[0].roleID)
+                });
+                await signinManager.SignInAsync(accountUser, false);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         [HttpPost, ActionName("Login")]
         public async Task<bool> Login(LoginInputParameter loginInputParameter) {
             var validateUserResults = await accountRepository.Login(loginInputParameter);
-            if (validateUserResults.Count > 0)
+            if (validateUserResults != null && validateUserResults.Count > 0)
             {
                 AccountUser accountUser = new AccountUser();
                 accountUser.userID = Convert.ToString(validateUserResults[0].userID);
@@ -50,7 +66,6 @@ namespace Personal.Movie.Database.Controllers
                 return false;
             }
         }
-
 
         [HttpGet, ActionName("Logout")]
         //[ValidateAntiForgeryToken]

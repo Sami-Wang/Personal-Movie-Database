@@ -215,6 +215,10 @@
                                     </div>
                                 </div>
 
+                                <div id="registerErrorMessage" class="row hidden">
+                                    <p class="text-danger" style="text-align:center">Sorry, Register Failed! Please Register Again!</p>
+                                </div>
+
                                 <div class="row">
                                     <div class="form-group col-lg-12" style="padding-left:10%; padding-right: 10%; padding-top:14px">
                                         <input type="submit" id="registerUserSubmit" class="btn btn-primary form-control" value="Register" />
@@ -276,6 +280,7 @@
                 $('#loginErrorMessage').addClass("hidden");
                 $('#registerUserForm').validate().resetForm();
                 $('#registerUserForm')[0].reset();
+                $('#registerErrorMessage').addClass("hidden");
                 $('.form-group').removeClass('has-error');
             });
         })
@@ -415,6 +420,14 @@
                                 firstName: $("#registerUserFirstName").val(),
                                 lastName: $("#registerUserLastName").val(),
                                 email: $("#registerUserEmail").val()
+                            },
+                            function (data) {
+                                if (data == true) {
+                                    location.reload();
+                                }
+                                else {
+                                    $("#registerErrorMessage").removeClass("hidden");
+                                }                  
                             });
                     }
                 });
